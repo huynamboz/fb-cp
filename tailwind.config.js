@@ -15,6 +15,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        clash: ['ClashDisplay', 'sans-serif'],
+      },
+      colors: {
+        primary: '#377DFF',
+        secondary: '#FF5555',
+      },
       backgroundImage: {
         'hero-pattern': 'url("/assets/images/hero-pattern.svg")',
       },

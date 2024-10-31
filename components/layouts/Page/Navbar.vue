@@ -28,49 +28,80 @@ const handleScroll = (): void => {
     )
   }
 }
-
-const showSettings = ref<boolean>(false)
 </script>
+
 <template>
   <header
     ref="navbar"
-    class="fixed transition-all duration-300 top-0 z-[90] flex justify-between items-center w-full p-5 py-4"
+    class="fixed transition-all duration-300 top-0 z-[90] flex justify-between items-center w-full px-10 py-4"
   >
-    <LayoutsNavigationSettings v-if="showSettings" @close="showSettings = false" />
-    <div class="flex items-center">
-      <!-- logo -->
-      <NuxtLink to="/" class="flex gap-2 items-center">
-        <div class="bg-accent-600 w-6 h-6 text-white rounded-lg text-center text-sm">/</div>
-        <span class="font-bold text-xl">huynam<span class="text-accent-600">boz</span></span>
-      </NuxtLink>
-      <!-- menu -->
-      <div class="max-md:hidden lg:flex mt-1 ml-5 gap-5">
-        <!-- <NuxtLink to="/projects" class="flex items-center gap-2 text-sm font-bold text-accent-600">
-          <span>Projects</span>
-        </NuxtLink>
-        <NuxtLink to="/blog/test" class="flex items-center gap-2 text-sm font-bold text-accent-600">
-          <span>Blog</span>
-        </NuxtLink>
-        <NuxtLink to="/contact" class="flex items-center gap-2 text-sm font-bold text-accent-600">
-          <span>Contact</span>
-        </NuxtLink> -->
-      </div>
-      <div></div>
-    </div>
-    <div class="flex items-center gap-4">
-      <NuxtLink to="https://github.com/huynamboz" target="_blank">
-        <Icon name="uil:github" size="24" color="black" />
-      </NuxtLink>
-      <NuxtLink to="https://github.com/huynamboz" target="_blank">
-        <Icon name="pajamas:linkedin" size="22" color="black" />
-      </NuxtLink>
-      <div
-        class="ml-3 cursor-pointer hover:bg-slate-300/70 bg-slate-300/50 max-md:p-0 max-md:w-9 h-9 px-4 rounded-xl flex gap-2 text-sm font-bold text-slate-700 justify-center items-center"
-        @click="showSettings = !showSettings"
-      >
-        <Icon name="gridicons:layout" size="19" color="black" />
-        <span class="max-md:hidden">Quick access</span>
-      </div>
-    </div>
+    <!-- logo -->
+    <NuxtLink to="/" class="flex gap-2 items-center">
+      <img src="/images/logo.png" class="w-20 h-20" alt="" />
+    </NuxtLink>
+
+    <!-- navigation -->
+    <ul class="max-md:hidden flex gap-10">
+      <li>
+        <NuxtLink to="#hero" class="text-base text-gray-800 dark:text-gray-200">Home</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="#key-feature" class="text-base text-gray-800 dark:text-gray-200"
+          >Key feature</NuxtLink
+        >
+      </li>
+      <li>
+        <NuxtLink to="#feature" class="text-base text-gray-800 dark:text-gray-200"
+          >Feature</NuxtLink
+        >
+      </li>
+      <li>
+        <NuxtLink to="#download" class="text-base text-gray-800 dark:text-gray-200"
+          >Download</NuxtLink
+        >
+      </li>
+    </ul>
+
+    <!-- button -->
+    <NuxtLink
+      to="#footer"
+      class="flex justify-center items-center max-md:hidden border bg-white border-primary h-[48px] w-[185px] rounded-full text-primary hover:bg-primary hover:text-white cursor-pointer"
+    >
+      Contact us
+    </NuxtLink>
+
+    <!-- mobile menu -->
+    <LayoutsPageNavBarMobile class="md:hidden" />
   </header>
 </template>
+
+<style scoped>
+/* Add styles for hover effect */
+ul li {
+  position: relative;
+  overflow: hidden;
+}
+
+ul li a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000; /* Adjust the color of the underline */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+ul li a:hover::after {
+  transform: scaleX(1);
+}
+</style>

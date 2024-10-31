@@ -1,85 +1,81 @@
 <template>
-  <footer class="w-full background-grid--fade-top background-grid pb-12 mt-20 pt-20">
-    <div class="flex w-full px-14 justify-between flex-wrap">
-      <!-- left -->
-      <div class="text-sm max-w-[300px]">
-        <p class="font-bold text-slate-600">About me</p>
-        <p class="text-slate-700 mt-3">
-          I'm huynamboz, a <strong>front-end developer</strong> from Viet Nam. I have rich
-          experience in web site design and building and customization.
-        </p>
-        <div class="flex mt-5 gap-5">
-          <NuxtLink to="https://github.com/huynamboz" target="_blank">
-            <Icon name="uil:github" size="24" color="black" />
-          </NuxtLink>
-          <NuxtLink to="https://github.com/huynamboz" target="_blank">
-            <Icon name="pajamas:linkedin" size="22" color="black" />
-          </NuxtLink>
-        </div>
+  <footer id="footer" class="bg-gray-800 text-white py-10 px-10">
+    <div class="container mx-auto flex flex-wrap justify-between gap-8">
+      <!-- Logo -->
+      <div>
+        <img src="/assets/images/logo-with-bg.png" alt="1Key Logo" class="h-12 mb-4" />
       </div>
-      <!-- right -->
-      <div class="flex gap-20">
-        <div class="text-sm">
-          <p class="font-bold text-slate-500">Discovery</p>
-          <div class="flex flex-col mt-4 gap-5">
-            <NuxtLink
-              to="/projects"
-              class="flex items-center gap-2 text-sm font-bold text-slate-600"
+
+      <!-- Terms & Policies -->
+      <div>
+        <h4 class="font-semibold text-lg mb-4">Terms & policies</h4>
+        <ul>
+          <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="font-semibold text-lg mb-4">Company</h4>
+        <ul>
+          <li>
+            <a href="https://danaexperts.com/" class="text-gray-400 hover:text-white">Home</a>
+          </li>
+          <li>
+            <a
+              href="https://danaexperts.com/q/index.php/portfolio"
+              class="text-gray-400 hover:text-white"
+              >About Us</a
             >
-              <span>Projects</span>
-            </NuxtLink>
-            <NuxtLink
-              to="/blog/test"
-              class="flex items-center gap-2 text-sm font-bold text-slate-600"
+          </li>
+          <li>
+            <a
+              href="https://danaexperts.com/q/index.php/our-company/contact"
+              class="text-gray-400 hover:text-white"
+              >Contact Us</a
             >
-              <span>Blog</span>
-            </NuxtLink>
-            <NuxtLink
-              to="/contact"
-              class="flex items-center gap-2 text-sm font-bold text-slate-600"
-            >
-              <span>Contact</span>
-            </NuxtLink>
-          </div>
-        </div>
-        <div class="text-sm">
-          <p class="font-bold text-slate-500">This site</p>
-          <div class="flex flex-col mt-4 gap-5">
-            <NuxtLink
-              to="/projects"
-              class="flex items-center gap-2 text-sm font-bold text-slate-600"
-            >
-              <span>Source code</span>
-            </NuxtLink>
-            <NuxtLink
-              to="/blog/test"
-              class="flex items-center gap-2 text-sm font-bold text-slate-600"
-            >
-              <span>My github</span>
-            </NuxtLink>
-            <NuxtLink
-              to="/contact"
-              class="flex items-center gap-2 text-sm font-bold text-slate-600"
-            >
-              <span>Design credit</span>
-              <Icon name="material-symbols-light:open-in-new" size="16" color="black" />
-            </NuxtLink>
-          </div>
-        </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-semibold text-lg mb-4">Contact</h4>
+        <p class="text-gray-400">+ 84.876666634</p>
+        <p class="text-gray-400">contact@danaexperts.com</p>
+      </div>
+
+      <!-- Location -->
+      <div>
+        <h4 class="font-semibold text-lg mb-4">Location</h4>
+        <p class="text-gray-400">05 Vo Quy Huan, FPT High Tech Park, Da Nang, Viet Nam</p>
+        <p class="text-gray-400">Vakkatie 28, Helsinki, Finland</p>
       </div>
     </div>
-    <div class="w-full flex justify-between px-14">
-      <!-- copyright -->
-      <div class="text-xs font-bold text-slate-500 mt-10">
-        <span>© 2021 huynamboz</span>
-      </div>
-      <!-- theme -->
-      <NuxtLink
-        to="https://github.com/huynamboz/huynamboz.github.io"
-        class="flex items-center gap-2 text-xs font-light text-slate-600 mt-10"
-        >See recent update on github
-        <img src="https://komarev.com/ghpvc/?username=huynamboz" alt="" />
-      </NuxtLink>
+
+    <!-- Social Icons -->
+    <div class="container mx-auto mt-10 flex justify-center space-x-6">
+      <a href="#" class="text-gray-400 hover:text-white">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container mx-auto mt-6 text-center text-gray-400">
+      <p>Copyright © 2024 DanaExperts. All Rights Reserved</p>
     </div>
   </footer>
 </template>

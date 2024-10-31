@@ -1,17 +1,17 @@
 <script setup>
 useHead({
   htmlAttrs: { lang: 'en' },
-  title: 'Huynamboz - impressive personal website',
-  meta: [{ name: 'description', content: 'An impressive personal website about huynamboz' }],
+  title: '1Key - A impressive password manager app',
+  meta: [{ name: 'description', content: 'An impressive password manager app' }],
 })
 
 useSeoMeta({
   charset: 'utf-8',
-  author: 'huynamboz',
-  title: 'Huynamboz - impressive personal website',
-  ogTitle: 'Huynamboz - impressive personal website',
-  description: 'An impressive personal website about huynamboz',
-  ogDescription: 'An impressive personal website about huynamboz',
+  author: '1Key',
+  title: '1Key - A impressive password manager app',
+  ogTitle: '1Key - A impressive password manager app',
+  description: 'An impressive password manager app',
+  ogDescription: 'An impressive password manager app',
   ogImage: '/public/images/thumbnail.png',
 })
 
@@ -19,14 +19,23 @@ definePageMeta({ layout: 'page' })
 </script>
 <template>
   <div class="flex flex-col w-full items-center pb-20 z-0 bg-white">
-    <section id="hero" class="background-grid w-full flex justify-center pt-20">
+    <section id="hero" class="w-full flex justify-center pt-20">
       <LayoutsHomeHero />
     </section>
-    <section id="quote" class="flex w-full justify-center">
-      <LayoutsHomeQuote />
+    <section id="why-choose" class="flex w-full justify-center">
+      <LayoutsHomeWhyChoose />
     </section>
-    <section id="project" class="flex w-full justify-center">
-      <LayoutsHomeProject />
+    <section id="key-feature" class="flex w-full justify-center">
+      <LayoutsHomeKeyFeature />
+    </section>
+    <section id="feature" class="flex w-full justify-center">
+      <LayoutsHomeFeature />
+    </section>
+    <section id="faq" class="flex w-full justify-center">
+      <LayoutsHomeFAQ />
+    </section>
+    <section id="download" class="flex w-full justify-center">
+      <LayoutsHomeDownload />
     </section>
   </div>
 </template>
