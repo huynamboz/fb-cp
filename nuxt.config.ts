@@ -21,19 +21,12 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
-
-  gtag: {
-    id: 'G-ZY3RTVFWZ2',
-  },
-
   modules: [
     '@vueuse/motion/nuxt',
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
     '@nuxtjs/sitemap',
     '@nuxt/image',
-    '@nuxt/content',
-    'nuxt-gtag',
   ],
 
   nitro: {
