@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
         },
       },
     )
-    return response
+    return 'ok'
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error)
