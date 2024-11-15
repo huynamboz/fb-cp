@@ -67,7 +67,7 @@
           for users to manage their passwords without hassle, ensuring safety and simplicity.
         </h4>
         <a
-          href="#key-feature"
+          href="#key-features"
           class="mt-8 gap-2 transition-all duration-150 bg-white rounded-full text-primary cursor-pointer"
         >
           Explore key feature

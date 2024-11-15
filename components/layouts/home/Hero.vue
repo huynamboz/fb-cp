@@ -6,12 +6,12 @@
     <div class="flex px-5">
       <!-- left -->
       <div class="max-md:w-full max-md:pt-0 w-[60%] pt-12">
-        <h1 class="max-md:text-[40px] font-clash font-bold text-[54px]">
+        <h1 class="max-md:text-[30px] font-clash font-bold text-[54px]">
           Secure your password anytime with
           <span id="typed" ref="typingElement" class="text-secondary"></span
           ><span class="cursor">&nbsp;</span>
         </h1>
-        <h2 class="text-gray-400">
+        <h2 class="max-dmd:text-[24px] text-gray-400">
           Keep your business safe with secure password management, <br />
           and let us handle the rest so you can focus on what matters.
         </h2>
@@ -100,9 +100,14 @@
           </div>
         </div>
 
-        <div class="flex flex-wrap gap-5 mt-10">
+        <div class="max-md:grid max-md:grid-cols-2 flex flex-wrap gap-5 mt-10">
           <img class="h-[48px]" src="@Assets/images/Apple.png" alt="" />
-          <img class="h-[48px]" src="@Assets/images/Google.png" alt="" />
+          <a
+            href="https://play.google.com/store/apps/details?id=com.danaexperts.onekey&pli=1"
+            target="_blank"
+          >
+            <img class="h-[48px]" src="@Assets/images/Google.png" alt="" />
+          </a>
         </div>
         <img class="h-[50px] mt-6" src="@Assets/images/user-reviews.png" alt="" />
       </div>
@@ -143,12 +148,12 @@ import 'vue3-toastify/dist/index.css'
 const typingElement = ref(null)
 
 onMounted(() => {
-  startTypingEffect(typingElement.value, ['1Pass'])
+  startTypingEffect(typingElement.value, ['1Key'])
 })
 
 const handleCopyToClipboard = () => {
   navigator.clipboard.writeText(password.value)
-  toast.success('Copied to clipboard !', {
+  toast.success('Copied to clipboard!', {
     autoClose: 1000,
     position: toast.POSITION.BOTTOM_LEFT,
   }) // ToastOptions

@@ -3,5 +3,5 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }

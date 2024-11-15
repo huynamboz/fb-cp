@@ -64,9 +64,9 @@
           alt=""
         />
       </div>
-      <div class="flex-1 flex flex-col justify-center">
+      <div class="max-md:mt-12 flex-1 flex flex-col justify-center">
         <h3 class="text-secondary">FEATURE</h3>
-        <h2 class="max-md:text-[40px] font-clash font-bold text-[50px]">1Pass features</h2>
+        <h2 class="max-md:text-[40px] font-clash font-bold text-[50px]">1Key features</h2>
         <div
           v-motion
           :initial="{ opacity: 0, x: 100 }"

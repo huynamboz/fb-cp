@@ -19,16 +19,21 @@
         <!-- Vertical Menu -->
         <ul class="flex flex-col items-center mt-10 gap-4">
           <li>
-            <NuxtLink to="/" class="text-lg">Home</NuxtLink>
+            <NuxtLink to="/" class="text-lg" @click="menuOpen = false">Home</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/features" class="text-lg">Features</NuxtLink>
+            <NuxtLink to="/#features" class="text-lg" @click="menuOpen = false">Features</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/pricing" class="text-lg">Pricing</NuxtLink>
+            <NuxtLink to="/#key-features" class="text-lg" @click="menuOpen = false"
+              >Key features</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink to="/contact" class="text-lg">Contact</NuxtLink>
+            <NuxtLink to="/#download" class="text-lg" @click="menuOpen = false">Download</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/policy" class="text-lg" @click="menuOpen = false">Policy</NuxtLink>
           </li>
         </ul>
       </div>

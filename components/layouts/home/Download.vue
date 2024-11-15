@@ -10,6 +10,11 @@
           alt=""
         /> -->
         <LayoutsHomeSwiperGallerySwiper />
+        <img
+          class="absolute w-full top-0 left-0 z-0"
+          src="@Assets/images/ellipse-group.png"
+          alt=""
+        />
       </div>
       <div class="max-md:mt-10 flex-1 flex flex-col justify-center">
         <div class="flex items-center gap-3">
@@ -39,7 +44,12 @@
         </h4>
         <div class="flex gap-5 mt-6">
           <img class="h-[48px]" src="@Assets/images/Apple.png" alt="" />
-          <img class="h-[48px]" src="@Assets/images/Google.png" alt="" />
+          <a
+            href="https://play.google.com/store/apps/details?id=com.danaexperts.onekey&pli=1"
+            target="_blank"
+          >
+            <img class="h-[48px]" src="@Assets/images/Google.png" alt="" />
+          </a>
         </div>
       </div>
     </div>

@@ -17,10 +17,14 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    url: 'https://hinam.site',
+    url: 'https://1key.id.vn',
   },
 
   devtools: { enabled: true },
+
+  gtag: {
+    id: 'G-ZY3RTVFWZ2',
+  },
 
   modules: [
     '@vueuse/motion/nuxt',
@@ -28,6 +32,8 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@nuxtjs/sitemap',
     '@nuxt/image',
+    '@nuxt/content',
+    'nuxt-gtag',
   ],
 
   nitro: {
