@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen flex flex-col p-4 items-center justify-between bg-gradient-to-r from-purple-50 to-blue-50"
+    class="md:hidden h-screen flex flex-col p-4 items-center justify-between bg-gradient-to-r from-purple-50 to-blue-50"
     @click="handleResetFocus"
   >
     <p class="text-center text-xs text-gray-500">English (UK)</p>
