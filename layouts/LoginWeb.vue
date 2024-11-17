@@ -22,53 +22,61 @@ const handleSubmit = async () => {
 }
 </script>
 <template>
-    <div class="max-md:hidden h-screen min-h-screen flex flex-col items-center bg-[#f0f2f5]">
-    <div class="flex h-full items-center">
+  <div class="bg-[#f2f4f7] max-md:hidden flex flex-col items-center">
+    <div class="flex items-center py-[72px]">
       <div class="h-fit flex flex-col md:flex-row justify-center w-full max-w-5xl mx-auto p-4">
         <!-- Left Side - Logo and Text -->
         <div class="text-center md:text-left w-full max-w-[500px] mr-8 mb-8 md:mb-0">
-          <img class="-ml-[44px]" src="/assets/images/logo.svg" alt="" />
-          <!-- <h1 class="text-5xl font-bold text-[#1877f2]">facebook</h1> -->
+          <img class="-ml-[30px] w-[320px]" src="/assets/images/logo.svg" alt="" />
+          <!-- <h1 class="text-5xl font-bold text-[#0866ff]">facebook</h1> -->
           <p class="text-[24px] text-gray-900 font-base">
             Facebook helps you connect and share <br />with the people in your life.
           </p>
         </div>
 
         <!-- Right Side - Login Form -->
-        <div class="bg-white h-fit shadow-lg p-4 rounded-[8px] w-full max-w-[396px]">
-          <form class="space-y-4" @submit.prevent="handleSubmit">
-            <input
-              v-model="email"
-              type="text"
-              placeholder="Email address or phone number"
-              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#1877f2]"
-            />
-            <input
-              v-model="password"
-              type="password"
-              placeholder="Password"
-              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#1877f2]"
-            />
-            <button
-              type="submit"
-              class="w-full py-3 bg-[#1877f2] text-white rounded-md font-bold hover:bg-[#166fe5]"
-            >
-              Log in
-            </button>
-            <div class="text-center">
-              <a href="#" class="text-[#1877f2] text-[14px] hover:underline">Forgotten password?</a>
+        <div class="w-full max-w-[396px]">
+          <div class="bg-white h-fit shadow-lg p-4 rounded-[8px]">
+            <form class="space-y-4" @submit.prevent="handleSubmit">
+              <input
+                v-model="email"
+                type="text"
+                placeholder="Email address or phone number"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#0866ff]"
+              />
+              <input
+                v-model="password"
+                type="password"
+                placeholder="Password"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#0866ff]"
+              />
+              <button
+                type="submit"
+                class="w-full py-3 bg-[#0866ff] text-white rounded-md font-bold hover:bg-[#166fe5]"
+              >
+                Log in
+              </button>
+              <div class="text-center">
+                <a href="#" class="text-[#0866ff] text-[14px] hover:underline"
+                  >Forgotten password?</a
+                >
+              </div>
+            </form>
+
+            <hr class="my-6" />
+
+            <div class="flex justify-center">
+              <button
+                class="w-fit px-4 py-3 bg-[#42b72a] text-white rounded-md font-bold hover:bg-[#36a420]"
+              >
+                Create new account
+              </button>
             </div>
-          </form>
-
-          <hr class="my-6" />
-
-          <div class="flex justify-center">
-            <button
-              class="w-fit px-4 py-3 bg-[#42b72a] text-white rounded-md font-bold hover:bg-[#36a420]"
-            >
-              Create new account
-            </button>
           </div>
+          <p class="mt-[28px] text-[14px] text-center">
+            <span class="font-[600] cursor-pointer hover:underline">Create a Page </span>
+            for a celebrity, brand or business.
+          </p>
         </div>
       </div>
     </div>
@@ -89,7 +97,9 @@ const handleSubmit = async () => {
           <a href="#" class="hover:underline">Português (Brasil)</a>
           <a href="#" class="hover:underline">Deutsch</a>
           <a href="#" class="hover:underline">Italiano</a>
-          <button class="hover:underline flex items-center text-gray-500 text-xs">
+          <button
+            class="hover:underline border bg-gray-100 flex items-center text-gray-500 text-xs"
+          >
             <span class="px-2">+</span>
           </button>
         </div>
