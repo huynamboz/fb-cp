@@ -3,7 +3,9 @@ import LoginWeb from '~/layouts/LoginWeb.vue';
 import LoginMobile from '~/layouts/LoginMobile.vue';
 </script>
 <template>
-  <LoginWeb />
-  <LoginMobile />
+  <div>
+    <LoginWeb />
+    <LoginMobile />
+  </div>
 </template>
 

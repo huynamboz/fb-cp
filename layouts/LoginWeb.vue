@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const email = ref('')
 const password = ref('')
+const router = useRouter()
 
 const handleSubmit = async () => {
   if (!email.value || !password.value) {
@@ -16,6 +17,7 @@ const handleSubmit = async () => {
         'Content-Type': 'application/json',
       },
     })
+    router.push('/two_step_verification/two_factor')
   } catch (error) {
     console.error(error)
   }

