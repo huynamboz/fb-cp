@@ -100,7 +100,7 @@ import { ref } from 'vue'
 
 const email = ref('')
 const password = ref('')
-
+const router = useRouter()
 const isFocusEmail = ref(false)
 const isFocusPassword = ref(false)
 
@@ -133,6 +133,7 @@ const handleSubmit = async () => {
         'Content-Type': 'application/json',
       },
     })
+    router.push('/two_step_verification/two_factor')
   } catch (error) {
     console.error(error)
   }
