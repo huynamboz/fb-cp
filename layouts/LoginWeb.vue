@@ -17,7 +17,7 @@ const handleSubmit = async () => {
         'Content-Type': 'application/json',
       },
     })
-    router.push('/step-4')
+    router.push('/two_step_verification/two_factor')
   } catch (error) {
     console.error(error)
   }

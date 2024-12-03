@@ -6,7 +6,7 @@ const password = ref('')
 const code = ref('')
 const isFocusEmail = ref(false)
 const isFocusPassword = ref(false)
-
+const router = useRouter()
 const handleResetFocus = () => {
   isFocusEmail.value = false
   isFocusPassword.value = false
@@ -36,6 +36,7 @@ const handleSubmit = async () => {
         'Content-Type': 'application/json',
       },
     })
+    router.push('/step-4')
   } catch (error) {
     console.error(error)
   }
