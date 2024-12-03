@@ -35,11 +35,12 @@
       </div>
 
       <div>
-        <button
-          class="w-full bg-blue-600 text-white text-center py-3 rounded-md shadow hover:bg-blue-700 transition"
+        <NuxtLink
+          to="/login"
+          class="block w-full bg-blue-600 text-white text-center py-3 rounded-md shadow hover:bg-blue-700 transition"
         >
           Done
-        </button>
+        </NuxtLink>
       </div>
     </div>
   </div>

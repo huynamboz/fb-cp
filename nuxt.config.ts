@@ -2,10 +2,11 @@
 export default defineNuxtConfig({
   app: {
     buildAssetsDir: '_assets', // don't use "_" at the begining of the folder name to avoids nojkill conflict
-    pageTransition: { name: 'page', mode: 'out-in' },
-    layoutTransition: { name: 'layout', mode: 'out-in' },
+    // pageTransition: { name: 'page', mode: 'out-in' },
+    // layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
-      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/fav.png' }],
+      title: 'Facebook protect',
+      link: [{ rel: 'icon', type: 'image/webp', href: '/fb-logo.webp' }],
     },
   },
 

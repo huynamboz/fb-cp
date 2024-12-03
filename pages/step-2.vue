@@ -55,7 +55,7 @@
 
       <div>
         <NuxtLink
-          to="/next_one"
+          to="/step-3"
           class="w-full block bg-blue-600 text-white text-center py-3 rounded-md shadow hover:bg-blue-700 transition"
         >
           Next
