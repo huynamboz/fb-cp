@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     url: 'https://1key.id.vn',
   },
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     '@vueuse/motion/nuxt',
     '@nuxtjs/tailwindcss',
