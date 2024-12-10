@@ -77,8 +77,11 @@
           </svg>
 
           <p class="">
-            Turn on Facebook Protect before <strong>29 Oct 2023</strong>. After that, you may be
-            locked out of your Facebook account until you turn it on.
+            <!-- Turn on Facebook Protect before <strong>29 Oct 2023</strong>. After that, you may be
+            locked out of your Facebook account until you turn it on. -->
+            <strong>Your account is current locked</strong> <br />
+            We've taken this precaution to keep your account secure while you enable additional
+            security measures.
           </p>
         </div>
       </div>

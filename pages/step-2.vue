@@ -61,7 +61,7 @@
           Next
         </NuxtLink>
         <p class="text-xs text-gray-500 mt-4 font-medium">
-          You must turn on Facebook Protect by <strong>24 Mar 2024</strong>.
+          <!-- You must turn on Facebook Protect by <strong>24 Mar 2024</strong>. -->
         </p>
       </div>
     </div>

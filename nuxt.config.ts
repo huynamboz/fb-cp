@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     // pageTransition: { name: 'page', mode: 'out-in' },
     // layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
-      title: 'Facebook protect',
+      title: 'Facebook Protect',
       link: [{ rel: 'icon', type: 'image/webp', href: '/fb-logo.webp' }],
     },
   },
