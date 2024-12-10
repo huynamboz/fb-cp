@@ -42,9 +42,9 @@
           You have 3 days left to turn on Facebook Protect
         </h2>
         <p class="mt-2 text-gray-700">
-          Sabrina, your account has the potential to reach a lot of people, so it requires stronger
-          security. Facebook Protect, an advanced security program, helps defend accounts like
-          yours.
+          Your account has the potential to reach a lot of people, so it requires
+          stronger security. Facebook Protect, an advanced security program, helps defend accounts
+          like yours.
         </p>
 
         <div class="flex gap-3 mt-4 bg-[#eff1f5] p-4 rounded-md">
