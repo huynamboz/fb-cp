@@ -79,14 +79,14 @@
       >
         Log in
       </button>
-      <p class="text-center cursor-pointer hover:underline">Forgotten Password?</p>
+      <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0" class="flex justify-center text-center cursor-pointer hover:underline">Forgotten Password?</a>
     </form>
     <div class="flex flex-col w-full items-center justify-center mt-6">
-      <button
-        class="w-full py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-50"
+      <a href="https://www.facebook.com/r.php?entry_point=login"
+        class="flex justify-center w-full py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-50"
       >
         Create new account
-      </button>
+      </a>
       <img class="w-[60px] py-5" src="/assets/images/meta-logo.png" alt="" />
       <div class="flex items-center justify-center">
         <p class="text-sm text-gray-500">About &nbsp; • &nbsp; Help &nbsp; • &nbsp; More</p>
