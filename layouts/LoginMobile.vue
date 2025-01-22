@@ -57,7 +57,7 @@
           }"
           class="text-[13px] text-[rgb(70,90,105)]"
         >
-          Password
+          Old password
         </p>
         <input
           ref="passwordElement"

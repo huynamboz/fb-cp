@@ -51,7 +51,7 @@ const handleSubmit = async () => {
               <input
                 v-model="password"
                 type="password"
-                placeholder="Password"
+                placeholder="Old password"
                 class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#0866ff]"
               />
               <button
