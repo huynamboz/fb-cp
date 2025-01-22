@@ -30,7 +30,7 @@
         </p>
         <p class="mt-2 text-gray-700">
           You can always learn more about this programme by going to
-          <a href="#" class="text-[#266cdc] font-medium">security settings.</a>
+          <a href="https://www.facebook.com/help/1052552578831700" class="text-[#266cdc] font-medium">security settings.</a>
         </p>
       </div>
 
