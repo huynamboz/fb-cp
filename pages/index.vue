@@ -1,9 +1,9 @@
 <template>
   <div class="max-md:min-h-lvh flex flex-col items-center justify-center h-lvh bg-gray-50">
     <div
-      class="max-w-[800px] min-h-[80vh] gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
+      class="max-w-[800px] min-h-[80vh] max-h-[80vh] gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
     >
-      <div class="w-full h-full flex flex-col">
+      <div class="w-full h-full flex flex-col overflow-hidden">
         <div class="flex justify-between items-center">
           <div class="flex items-center">
             <div class="rounded-full p-2">
@@ -36,8 +36,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </div>
-        <div class="flex justify-center">
-          <img class="max-w-[400px]" src="@Assets/images/protect-1.png" alt="" />
+        <div class="flex justify-center flex-auto overflow-hidden">
+          <img class="h-full object-contain" src="@Assets/images/protect-1.png" alt="" />
         </div>
 
         <h2 class="mt-4 text-xl font-semibold text-gray-900">
