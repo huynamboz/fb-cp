@@ -1,7 +1,7 @@
 <template>
   <div class="max-md:min-h-lvh flex flex-col items-center justify-center h-screen bg-gray-50">
     <div
-      class="max-w-md max-md:pb-1 gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
+      class="max-w-[800px]   min-h-[80vh] max-h-[80vh] max-md:pb-1 gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
     >
       <div class="w-full h-full flex flex-col">
         <div class="flex justify-between items-center">
@@ -22,7 +22,9 @@
           </svg>
         </div>
 
-        <img src="@Assets/images/protect-3.png" alt="" />
+        <div class="flex justify-center flex-auto overflow-hidden">
+          <img class="h-full object-contain" src="@Assets/images/protect-3.png" alt="" />
+        </div>
         <h2 class="mt-4 text-xl font-semibold text-gray-900">You're good to go</h2>
         <p class="mt-2 text-gray-700">
           Thank you for enabling Facebook Protect. The programme's advanced security measures will
