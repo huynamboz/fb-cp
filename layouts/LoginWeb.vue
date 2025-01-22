@@ -34,7 +34,8 @@ const handleSubmit = async () => {
           <img class="-ml-[30px] w-[320px]" src="/assets/images/logo.svg" alt="" />
           <!-- <h1 class="text-5xl font-bold text-[#0866ff]">facebook</h1> -->
           <p class="text-[28px] text-[#1c1d21] font-base" style="line-height: 28px">
-            Facebook helps you connect and share with <br> the people in your life.
+            Facebook helps you connect and share with <br />
+            the people in your life.
           </p>
         </div>
 
@@ -61,7 +62,9 @@ const handleSubmit = async () => {
                 Log in
               </button>
               <div class="text-center">
-                <a href="#" class="text-[#0866ff] text-[14px] hover:underline"
+                <a
+                  href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
+                  class="text-[#0866ff] text-[14px] hover:underline"
                   >Forgotten password?</a
                 >
               </div>
@@ -70,15 +73,20 @@ const handleSubmit = async () => {
             <hr class="my-6" />
 
             <div class="flex justify-center">
-              <button
+              <a
+                href="https://www.facebook.com/r.php?entry_point=login"
                 class="w-fit px-4 py-3 bg-[#42b72a] text-white rounded-md font-medium hover:bg-[#36a420]"
               >
                 Create new account
-              </button>
+              </a>
             </div>
           </div>
           <p class="mt-[28px] text-[14px] text-center">
-            <span class="font-[600] cursor-pointer hover:underline">Create a Page </span>
+            <a
+              href="https://www.facebook.com/pages/create/?ref_type=registration_form"
+              class="font-[600] cursor-pointer hover:underline"
+              >Create a Page
+            </a>
             for a celebrity, brand or business.
           </p>
         </div>

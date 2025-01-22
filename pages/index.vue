@@ -1,7 +1,7 @@
 <template>
   <div class="max-md:min-h-lvh flex flex-col items-center justify-center h-lvh bg-gray-50">
     <div
-      class="max-w-[800px] gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
+      class="max-w-[800px] min-h-[80vh] gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
     >
       <div class="w-full h-full flex flex-col">
         <div class="flex justify-between items-center">
