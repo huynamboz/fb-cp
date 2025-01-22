@@ -33,7 +33,7 @@ const handleSubmit = async () => {
         <div class="text-center mt-[38px] md:text-left w-full max-w-[500px] mr-8 mb-8 md:mb-0">
           <img class="-ml-[30px] w-[320px]" src="/assets/images/logo.svg" alt="" />
           <!-- <h1 class="text-5xl font-bold text-[#0866ff]">facebook</h1> -->
-          <p class="text-[24px] text-gray-900 font-base" style="line-height: 28px">
+          <p class="text-[24px] text-[#1c1d21] font-base" style="line-height: 28px">
             Facebook helps you connect and share with the people in your life.
           </p>
         </div>
@@ -150,7 +150,7 @@ const handleSubmit = async () => {
         </div>
 
         <!-- Copyright -->
-        <div class="text-gray-500 font-light text-[12px] mt-3">Meta © 2024</div>
+        <div class="text-gray-500 font-light text-[12px] mt-3">Meta © 2025</div>
       </div>
     </footer>
   </div>
