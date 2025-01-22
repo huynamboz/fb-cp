@@ -24,16 +24,16 @@ const handleSubmit = async () => {
 }
 </script>
 <template>
-  <div class="bg-[#f2f4f7] max-md:hidden flex flex-col items-center">
-    <div class="flex items-center py-[79px]">
+  <div class="bg-[#f2f4f7] max-md:hidden flex flex-col items-center h-lvh">
+    <div class="flex items-center py-[79px] pt-[30px] h-full">
       <div
         class="form-main py-5 h-fit flex flex-col md:flex-row justify-center w-full max-w-5xl mx-auto p-4"
       >
         <!-- Left Side - Logo and Text -->
-        <div class="text-center mt-[38px] md:text-left w-full max-w-[500px] mr-8 mb-8 md:mb-0">
+        <div class="text-center mt-[38px] md:text-left w-full max-w-[580px] mr-8 mb-8 md:mb-0">
           <img class="-ml-[30px] w-[320px]" src="/assets/images/logo.svg" alt="" />
           <!-- <h1 class="text-5xl font-bold text-[#0866ff]">facebook</h1> -->
-          <p class="text-[24px] text-[#1c1d21] font-base" style="line-height: 28px">
+          <p class="text-[28px] text-[#1c1d21] font-base" style="line-height: 28px">
             Facebook helps you connect and share with the people in your life.
           </p>
         </div>
@@ -86,7 +86,7 @@ const handleSubmit = async () => {
     </div>
 
     <!-- Footer Section -->
-    <footer class="bg-white w-full flex flex-col items-center py-4 px-10">
+    <footer class="bg-white w-full flex flex-col items-center py-[28px] pb-[40px] px-10">
       <div class="w-full max-w-[980px]">
         <!-- Language Links -->
         <div
@@ -106,10 +106,8 @@ const handleSubmit = async () => {
           <a class="plus-wrapper">
             <!-- <span class="px-2">+</span> -->
             <!-- <i class="plus"></i> -->
-<span class="text-[16px]">
-  +
-
-</span>          </a>
+            <span class="text-[16px]"> + </span>
+          </a>
         </div>
 
         <!-- Divider Line -->
@@ -206,5 +204,4 @@ const handleSubmit = async () => {
   align-items: center;
   height: 18px;
 }
-
 </style>

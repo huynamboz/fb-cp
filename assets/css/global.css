@@ -3,6 +3,6 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
   background-color: #fff;
 }
