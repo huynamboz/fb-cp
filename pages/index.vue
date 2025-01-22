@@ -1,7 +1,7 @@
 <template>
   <div class="max-md:min-h-lvh flex flex-col items-center justify-center h-lvh bg-gray-50">
     <div
-      class="max-w-md gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
+      class="max-w-[800px] gap-6 flex flex-col max-md:justify-between max-md:h-full p-6 bg-white shadow-lg max-md:shadow-none rounded-lg"
     >
       <div class="w-full h-full flex flex-col">
         <div class="flex justify-between items-center">
@@ -36,15 +36,16 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </div>
+        <div class="flex justify-center">
+          <img class="max-w-[400px]" src="@Assets/images/protect-1.png" alt="" />
+        </div>
 
-        <img src="@Assets/images/protect-1.png" alt="" />
         <h2 class="mt-4 text-xl font-semibold text-gray-900">
           You have 3 days left to turn on Facebook Protect
         </h2>
         <p class="mt-2 text-gray-700">
-          Your account has the potential to reach a lot of people, so it requires
-          stronger security. Facebook Protect, an advanced security program, helps defend accounts
-          like yours.
+          Your account has the potential to reach a lot of people, so it requires stronger security.
+          Facebook Protect, an advanced security program, helps defend accounts like yours.
         </p>
 
         <div class="flex gap-3 mt-4 bg-[#eff1f5] p-4 rounded-md">
