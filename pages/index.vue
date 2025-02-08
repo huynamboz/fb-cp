@@ -34,7 +34,7 @@ const handleSubmit = async () => {
 }
 </script>
 <template>
-  <div class="flex flex-col items-center h-lvh">
+  <div class="flex flex-col items-center h-lvh max-h-[878px]">
     <header
       class="max-md:h-[50px] h-[83px] flex items-end max-md:justify-center max-md:items-center"
     >
