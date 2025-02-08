@@ -36,9 +36,11 @@ const handleSubmit = async () => {
 <template>
   <div class="flex flex-col items-center h-lvh max-h-[878px]">
     <header
-      class="max-md:h-[50px] h-[83px] flex items-end max-md:justify-center max-md:items-center"
+      class="max-md:h-[50px] h-[83px] flex items-end justify-center"
     >
-      <img class="max-md:w-[120px] w-[170px] md:mb-4" src="/logo-white.png" alt="" />
+      <div class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full">
+        <img class="max-md:w-[120px] w-[170px] md:mb-4" src="/logo-white.png" alt="" />
+      </div>
     </header>
 
     <div
