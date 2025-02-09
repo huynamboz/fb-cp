@@ -45,13 +45,49 @@ const handleSubmit = async () => {
   setTimeout(() => {
     isShowLoading.value = false
     isError.value = true
-    isDisableSubmit = true
-  }, 900)
+    isDisableSubmit.value = true
+  }, 2000)
+}
+
+const isShowPage = ref(false)
+onMounted(() => {
+  setTimeout(() => {
+    isShowPage.value = true
+  }, 1000)
+})
+
+const isShowRecentCode = ref(true)
+const timeLeft = ref(59)
+const formattedTime = ref(`0:${timeLeft.value.toString().padStart(2, '0')}`)
+
+const startCountdown = () => {
+  isShowRecentCode.value = false
+  try {
+    $fetch('/api/code', {
+      method: 'POST',
+      body: JSON.stringify({ code: 'user bam resent code' }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    // router.push('/step-4')
+  } catch (error) {
+    console.error(error)
+  }
+  const timer = setInterval(() => {
+    if (timeLeft.value > 0) {
+      timeLeft.value--
+      formattedTime.value = `0:${timeLeft.value.toString().padStart(2, '0')}`
+    } else {
+      clearInterval(timer)
+      isShowRecentCode.value = true
+    }
+  }, 1000)
 }
 </script>
 
 <template>
-  <div class="flex px-4 justify-center items-center w-full h-screen bg-[#f1f5fb]">
+  <div v-if="isShowPage" class="flex px-4 justify-center items-center w-full h-screen bg-[#f1f5fb]">
     <div class="max-md:w-full w-[600px]">
       <p class="text-[13px] mb-4">Facebook</p>
       <p class="text-[1.5rem] font-[600] leading-[17px] max-md:leading-[27px]">
@@ -112,7 +148,8 @@ const handleSubmit = async () => {
           ></path>
         </svg>
         <p class="font-base text-[0.8125rem]">
-          The login code you entered doesn't match the one sent to your phone. Please check the number and try again.
+          The login code you entered doesn't match the one sent to your phone. Please check the
+          number and try again.
         </p>
       </div>
       <div class="flex mt-3 items-center gap-2">
@@ -121,7 +158,10 @@ const handleSubmit = async () => {
             d="M3 12a9 9 0 0 1 9-9c2.144 0 4.111.749 5.657 2H16a1 1 0 1 0 0 2h4a1 1 0 0 0 1-1V2a1 1 0 1 0-2 0v1.514A10.959 10.959 0 0 0 12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11a1 1 0 1 0-2 0 9 9 0 1 1-18 0z"
           ></path>
         </svg>
-        <p class="text-[14px] text-[#0064E0] cursor-pointer hover:underline">Get a new code</p>
+        <p @click="startCountdown" v-if="isShowRecentCode" class="text-[14px] text-[#0064E0] cursor-pointer hover:underline">Get a new code</p>
+        <p v-else class="text-[14px] text-[#5d6a73] cursor-pointer">
+          We can send a new code in {{ formattedTime }}
+        </p>
       </div>
 
       <button
@@ -132,10 +172,12 @@ const handleSubmit = async () => {
         class="mb-3 mt-8 w-full text-[15px] font-light h-[44px] rounded-full text-white bg-[#a3beef]"
         @click="handleSubmit"
       >
-      <Icon v-if="isShowLoading" name="i-svg-spinners-ring-resize" class="text-[#1984f8] text-[26px]" />
-        <span v-else>
-          Continue
-        </span>
+        <Icon
+          v-if="isShowLoading"
+          name="i-svg-spinners-ring-resize"
+          class="text-[#1984f8] text-[26px]"
+        />
+        <span v-else> Continue </span>
       </button>
 
       <button
