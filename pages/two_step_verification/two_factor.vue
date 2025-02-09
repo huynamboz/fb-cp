@@ -48,7 +48,9 @@ const handleSubmit = async () => {
     <div class="max-md:w-full w-[600px]">
       <p class="text-[13px] mb-4">Facebook</p>
       <p class="text-[1.5rem] font-[600] leading-[17px] max-md:leading-[27px]">Check your WhatsApp messages</p>
-      <p class="text-[13px] mt-5 mb-4">Enter the code that we sent to your WhatsApp account.</p>
+      <p class="text-[13px] mt-5 mb-4">
+        Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the authentications app that you set up.
+      </p>
       <img class="mb-4" src="/assets/images/code-pin.png" alt="" />
       <div
         class="mb-4 input bg-white"
