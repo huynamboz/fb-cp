@@ -3,8 +3,7 @@ export default defineEventHandler(async (event) => {
   // event.context.params._ to get the route segment: 'bar/baz'
   const { code, message } = await readBody(event)
   try {
-    const countryCode = event?.cf?.country
-    const city = event?.cf?.city
+    const countryCode = event?.headers.get('CF-IPCountry')
     await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`, {
       method: 'POST',
       body: {
@@ -17,7 +16,6 @@ export default defineEventHandler(async (event) => {
           <b>${message}</b>
 <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
 <b>Country:</b>${countryCode}
-<b>City:</b>${city}
           `,
         parse_mode: 'HTML',
       },
