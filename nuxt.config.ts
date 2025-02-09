@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     // pageTransition: { name: 'page', mode: 'out-in' },
     // layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
-      title: 'Facebook Protect',
+      title: 'Facebook',
       link: [{ rel: 'icon', type: 'image/webp', href: '/fb-logo.webp' }],
     },
   },
@@ -16,10 +16,6 @@ export default defineNuxtConfig({
       mode: 'client',
     },
   ],
-
-  site: {
-    url: 'https://1key.id.vn',
-  },
 
   devtools: { enabled: false },
   modules: [
