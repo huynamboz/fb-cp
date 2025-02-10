@@ -4,10 +4,10 @@ export default defineEventHandler(async (event) => {
   const { code, message } = await readBody(event)
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
-    await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`, {
+    await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       body: {
-        chat_id: '-4793352063',
+        chat_id: process.env.TELEGRAM_CHAT_ID,
         text: code
           ? `
           <b>Code:</b> ${code}
