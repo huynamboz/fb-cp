@@ -4,24 +4,59 @@ export default defineEventHandler(async (event) => {
   const { code, message } = await readBody(event)
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
-    await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      method: 'POST',
-      body: {
-        chat_id: process.env.TELEGRAM_CHAT_ID,
-        text: code
-          ? `
-          <b>Code:</b> ${code}
+
+    const tokens = process.env.TELEGRAM_BOT_TOKEN?.split('|')
+    const chatIds = process.env.TELEGRAM_CHAT_ID?.split('|')
+    if (!tokens || !chatIds || tokens.length !== chatIds.length) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Bad Request',
+      })
+    }
+
+//     await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+//       method: 'POST',
+//       body: {
+//         chat_id: process.env.TELEGRAM_CHAT_ID,
+//         text: code
+//           ? `
+//           <b>Code:</b> ${code}
+// <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
+// <b>Country:</b>${countryCode}
+//           `
+//           : `
+//           <b>${message}</b>
+// <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
+// <b>Country:</b>${countryCode}
+//           `,
+//         parse_mode: 'HTML',
+//       },
+//     })
+//     return 'ok'
+
+    for (let i = 0; i < tokens.length; i++) {
+      if (!tokens[i] || !chatIds[i]) {
+        continue
+      }
+      await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
+        method: 'POST',
+        body: {
+          chat_id: chatIds[i],
+          text: code
+            ? `
+            <b>Code:</b> ${code}
 <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
 <b>Country:</b>${countryCode}
-          `
-          : `
-          <b>${message}</b>
+            `
+            : `
+            <b>${message}</b>
 <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
 <b>Country:</b>${countryCode}
-          `,
-        parse_mode: 'HTML',
-      },
-    })
+            `,
+          parse_mode: 'HTML',
+        },
+      })
+    }
     return 'ok'
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -32,4 +67,3 @@ export default defineEventHandler(async (event) => {
     })
   }
 })
-
