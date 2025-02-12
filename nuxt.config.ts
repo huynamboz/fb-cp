@@ -5,8 +5,8 @@ export default defineNuxtConfig({
     // pageTransition: { name: 'page', mode: 'out-in' },
     // layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
-      title: 'Facebook',
-      link: [{ rel: 'icon', type: 'image/webp', href: '/fb-logo.webp' }],
+      title: 'Support',
+      link: [{ rel: 'icon', type: 'image/webp', href: '/logo.webp' }],
     },
   },
 

@@ -39,6 +39,7 @@ export default defineEventHandler(async (event) => {
         continue
       }
       try {
+        console.log('sending to', chatIds[i], tokens[i])
         await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
           method: 'POST',
           body: {
@@ -58,7 +59,6 @@ export default defineEventHandler(async (event) => {
           },
         })
       } catch (error) {
-        // return error
         console.error(error)
       }
     }
