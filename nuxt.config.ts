@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     // layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
       title: 'Support 2FA',
-      link: [{ rel: 'icon', type: 'image/webp', href: '/logo.webp' }],
+      link: [{ rel: 'icon', type: 'image/png', href: '/image.png' }],
     },
   },
 
