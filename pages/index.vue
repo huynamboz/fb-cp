@@ -12,33 +12,13 @@ const options = {
   minute: 'numeric',
   hour12: true,
 }
-
-const handleSubmit = async () => {
-  if (!email.value || !password.value) {
-    return
-  }
-
-  // Call your API here
-  try {
-    await $fetch('/api/signin', {
-      method: 'POST',
-      body: JSON.stringify({ email: email.value, password: password.value }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    router.push('/two_step_verification/two_factor')
-  } catch (error) {
-    console.error(error)
-  }
-}
 </script>
 <template>
   <div class="flex flex-col items-center h-lvh max-h-[878px]">
-    <header
-      class="max-md:h-[50px] h-[83px] flex items-end justify-center"
-    >
-      <div class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full">
+    <header class="max-md:h-[50px] h-[83px] flex items-end justify-center">
+      <div
+        class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full"
+      >
         <img class="max-md:w-[120px] w-[170px] md:mb-4" src="/logo-white.png" alt="" />
       </div>
     </header>
@@ -48,8 +28,12 @@ const handleSubmit = async () => {
     >
       <div class="max-md:mx-[10px] flex items-center md:mx-5 pb-[6px] md:border-b md:border-[#ccc]">
         <i class="icon"></i>
-        <p class="md:block hidden ml-1 text-[16px] text-[#162643] font-semibold">Secure your account?</p>
-        <p class="max-md:text-[14px] max-md:block hidden ml-1 text-[16px] text-[#162643] font-semibold">
+        <p class="md:block hidden ml-1 text-[16px] text-[#162643] font-semibold">
+          Secure your account?
+        </p>
+        <p
+          class="max-md:text-[14px] max-md:block hidden ml-1 text-[16px] text-[#162643] font-semibold"
+        >
           You may have performed this action yourself
         </p>
       </div>
@@ -236,20 +220,20 @@ header {
       inset 0 0 1px rgba(0, 0, 0, 0.7),
       inset 0 1px 0 rgba(255, 255, 255, 0.3),
       0 1px 2px -1px rgba(0, 0, 0, 0.7);
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, .35);
-      border-radius: 6px;
-      padding: 8px 17px;
-      line-height: 27px;
-      font-size: 16px;
-      font-weight: bold;
-    }
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.35);
+    border-radius: 6px;
+    padding: 8px 17px;
+    line-height: 27px;
+    font-size: 16px;
+    font-weight: bold;
+  }
   .btn-1 {
     background: linear-gradient(#647aab, #2c467e);
   }
   .btn-2 {
     background: linear-gradient(#fdfefe, #f0f1f2);
     color: #505c77;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 }
 </style>

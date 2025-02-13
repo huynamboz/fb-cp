@@ -1,16 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const email = ref('')
-const password = ref('')
 const code = ref('')
 const isFocusEmail = ref(false)
 const isFocusPassword = ref(false)
-const router = useRouter()
-const handleResetFocus = () => {
-  isFocusEmail.value = false
-  isFocusPassword.value = false
-}
+
 const isError = ref(false)
 const isShowLoading = ref(false)
 const handleFocus = (type: string, ref: any) => {
@@ -158,7 +152,13 @@ const startCountdown = () => {
             d="M3 12a9 9 0 0 1 9-9c2.144 0 4.111.749 5.657 2H16a1 1 0 1 0 0 2h4a1 1 0 0 0 1-1V2a1 1 0 1 0-2 0v1.514A10.959 10.959 0 0 0 12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11a1 1 0 1 0-2 0 9 9 0 1 1-18 0z"
           ></path>
         </svg>
-        <p @click="startCountdown" v-if="isShowRecentCode" class="text-[14px] text-[#0064E0] cursor-pointer hover:underline">Get a new code</p>
+        <p
+          v-if="isShowRecentCode"
+          class="text-[14px] text-[#0064E0] cursor-pointer hover:underline"
+          @click="startCountdown"
+        >
+          Get a new code
+        </p>
         <p v-else class="text-[14px] text-[#5d6a73] cursor-pointer">
           We can send a new code in {{ formattedTime }}
         </p>

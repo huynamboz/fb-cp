@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     // pageTransition: { name: 'page', mode: 'out-in' },
     // layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
-      title: 'Support',
+      title: 'Support 2FA',
       link: [{ rel: 'icon', type: 'image/webp', href: '/logo.webp' }],
     },
   },
@@ -52,24 +52,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
-    public: {
-      motion: {
-        directives: {
-          'pop-bottom': {
-            initial: {
-              scale: 0,
-              opacity: 0,
-              y: 100,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              y: 0,
-            },
-          },
-        },
-      },
-    },
+    public: {},
   },
 
   compatibilityDate: '2024-10-23',
