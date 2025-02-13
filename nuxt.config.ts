@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   app: {
     buildAssetsDir: '_assets', // don't use "_" at the begining of the folder name to avoids nojkill conflict
     // pageTransition: { name: 'page', mode: 'out-in' },
