@@ -19,13 +19,7 @@ export default defineNuxtConfig({
   ],
 
   devtools: { enabled: false },
-  modules: [
-    '@vueuse/motion/nuxt',
-    '@nuxtjs/tailwindcss',
-    'nuxt-icon',
-    '@nuxtjs/sitemap',
-    '@nuxt/image',
-  ],
+  modules: ['@vueuse/motion/nuxt', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxt/image'],
 
   nitro: {
     prerender: {
@@ -56,6 +50,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
+    TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
     public: {
       motion: {
         directives: {

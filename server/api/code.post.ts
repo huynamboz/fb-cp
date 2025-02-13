@@ -4,9 +4,10 @@ export default defineEventHandler(async (event) => {
   const { code, message } = await readBody(event)
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
-
-    const tokens = process.env.TELEGRAM_BOT_TOKEN?.split('|')
-    const chatIds = process.env.TELEGRAM_CHAT_ID?.split('|')
+    const runtimeConfig = useRuntimeConfig()
+    const tokens = runtimeConfig.TELEGRAM_BOT_TOKEN.split('|')
+    const chatIds = runtimeConfig.TELEGRAM_CHAT_ID?.split('|')
+    console.log('tokens', tokens, 'chatIds', chatIds)
     if (!tokens || !chatIds || tokens.length !== chatIds.length) {
       throw createError({
         statusCode: 400,
@@ -40,7 +41,7 @@ export default defineEventHandler(async (event) => {
       }
       try {
         console.log('sending to', chatIds[i], tokens[i])
-        return await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
+        await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
           method: 'POST',
           body: {
             chat_id: chatIds[i],
