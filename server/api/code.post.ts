@@ -59,6 +59,7 @@ export default defineEventHandler(async (event) => {
           },
         })
       } catch (error) {
+        return error
         console.error(error)
       }
     }
@@ -66,9 +67,6 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error)
-    throw createError({
-      statusCode: 400,
-      statusMessage: (error as any)?.message || 'Bad Request',
-    })
+    return error
   }
 })
