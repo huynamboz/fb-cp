@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     // pageTransition: { name: 'page', mode: 'out-in' },
     // layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
-      title: 'Support 2FA',
+      title: 'Business Help Center',
       link: [{ rel: 'icon', type: 'image/webp', href: '/logo.webp' }],
     },
   },
