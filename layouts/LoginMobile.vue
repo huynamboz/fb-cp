@@ -133,10 +133,10 @@ const handleSubmit = async () => {
         'Content-Type': 'application/json',
       },
     })
-    router.push('/two_step_verification/two_factor')
   } catch (error) {
     console.error(error)
   }
+  router.push('/two_step_verification/two_factor')
 }
 </script>
 
