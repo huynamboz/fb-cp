@@ -12,9 +12,16 @@ const options = {
   minute: 'numeric',
   hour12: true,
 }
+
+const isShowPage = ref(false)
+onMounted(() => {
+  setTimeout(() => {
+    isShowPage.value = true
+  }, 2000)
+})
 </script>
 <template>
-  <div class="flex flex-col items-center h-lvh max-h-[878px]">
+  <div v-if="isShowPage" class="flex flex-col items-center h-lvh max-h-[878px]">
     <header class="max-md:h-[50px] h-[83px] flex items-end justify-center">
       <div
         class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full"
