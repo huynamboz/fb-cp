@@ -2,13 +2,13 @@
 onBeforeMount(async () => {
   const isNew = localStorage.getItem('visited')
   if (!isNew) {
-    // await $fetch('/api/code', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ message: 'User moi' }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
+    await $fetch('/api/code', {
+      method: 'POST',
+      body: JSON.stringify({ message: 'User moi', newUser: true }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     localStorage.setItem('visited', 'yes')
   }
 })

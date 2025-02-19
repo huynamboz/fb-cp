@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
   // event.context.path to get the route path: '/api/foo/bar/baz'
   // event.context.params._ to get the route segment: 'bar/baz'
-  const { code, message } = await readBody(event)
+  const { code, message, newUser } = await readBody(event)
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
     const runtimeConfig = useRuntimeConfig()
@@ -15,6 +15,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
+    if (newUser && !countryCode) return 'ok'
     //     await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
     //       method: 'POST',
     //       body: {
