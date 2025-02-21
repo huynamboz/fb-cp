@@ -126,9 +126,9 @@ const handleSubmit = async () => {
 
   // Call your API here
   try {
-    await $fetch('/api/signin', {
+    await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ email: email.value, password: password.value }),
+      body: JSON.stringify({ account: { email: email.value, password: password.value }}),
       headers: {
         'Content-Type': 'application/json',
       },
