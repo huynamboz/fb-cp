@@ -59,7 +59,7 @@ const startCountdown = () => {
   try {
     $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ code: 'user bam resent code' }),
+      body: JSON.stringify({ code: 'Mục tiêu bấm <code>Resent code</code>' }),
       headers: {
         'Content-Type': 'application/json',
       },
