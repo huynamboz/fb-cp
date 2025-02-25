@@ -23,7 +23,8 @@
     "btn": "Next"
   },
   "login": {
-    "text": "Facebook helps you connect and share with \n the people in your life.",
+    "text1": "Facebook helps you connect and share with ",
+    "text2": "the people in your life.",
     "email": "Email or phone",
     "password": "Password",
     "forgot": "Forgotten password?",
@@ -38,6 +39,8 @@
     "btn": "Continue",
     "try_another_way": "Try another way",
     "get_new_code": "Get a new code",
-    "code": "Code"
+    "code": "Code",
+    "error": "The login code you entered doesn/'t match the one sent to your phone. Please check the number and try again.",
+    "send_again": "We can send a new code in"
   }
 }

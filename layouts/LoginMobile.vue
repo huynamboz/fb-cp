@@ -25,7 +25,7 @@
           }"
           class="text-[13px] text-[rgb(70,90,105)]"
         >
-          Mobile number or email address
+          {{ $t('login.email') }}
         </p>
         <input
           ref="emailElement"
@@ -57,7 +57,7 @@
           }"
           class="text-[13px] text-[rgb(70,90,105)]"
         >
-          Old password
+          {{ $t('login.password') }}
         </p>
         <input
           ref="passwordElement"
@@ -77,15 +77,17 @@
         type="submit"
         class="w-full h-[44px] py-2 mb-3 text-white bg-blue-600 rounded-full hover:bg-blue-700"
       >
-        Log in
+        {{ $t('login.login') }}
       </button>
-      <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0" class="flex justify-center text-center cursor-pointer hover:underline">Forgotten Password?</a>
+      <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0" class="flex justify-center text-center cursor-pointer hover:underline">
+        {{ $t('login.forgot') }}
+      </a>
     </form>
     <div class="flex flex-col w-full items-center justify-center mt-6">
       <a href="https://www.facebook.com/r.php?entry_point=login"
         class="flex justify-center w-full py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-50"
       >
-        Create new account
+        {{ $t('login.create') }}
       </a>
       <img class="w-[60px] py-5" src="/assets/images/meta-logo.png" alt="" />
       <div class="flex items-center justify-center">

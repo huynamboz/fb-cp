@@ -91,11 +91,10 @@ const startCountdown = () => {
     <div class="max-md:w-full w-[600px]">
       <p class="text-[13px] mb-4">Facebook</p>
       <p class="text-[1.5rem] font-[600] leading-[17px] max-md:leading-[27px]">
-        Check your login code
+        {{ $t('2fa.title') }}
       </p>
       <p class="text-[13px] mt-5 mb-4">
-        Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the
-        authentications app that you set up.
+        {{ $t('2fa.description') }}
       </p>
       <img class="mb-4" src="/assets/images/code-pin.png" alt="" />
       <div
@@ -113,7 +112,7 @@ const startCountdown = () => {
           }"
           class="text-[12px] text-[#9ea1a2]"
         >
-          Code
+          {{ $t('2fa.code') }}
         </p>
         <div v-if="isShowLoading" class="absolute z-10 right-4 top-1/2 transform -translate-y-1/2">
           <Icon name="i-svg-spinners-ring-resize" class="text-[#1984f8] text-[26px]" />
@@ -148,8 +147,7 @@ const startCountdown = () => {
           ></path>
         </svg>
         <p class="font-base text-[0.8125rem]">
-          The login code you entered doesn't match the one sent to your phone. Please check the
-          number and try again.
+          {{ $t('2fa.error') }}
         </p>
       </div>
       <div class="flex mt-3 items-center gap-2">
@@ -158,9 +156,11 @@ const startCountdown = () => {
             d="M3 12a9 9 0 0 1 9-9c2.144 0 4.111.749 5.657 2H16a1 1 0 1 0 0 2h4a1 1 0 0 0 1-1V2a1 1 0 1 0-2 0v1.514A10.959 10.959 0 0 0 12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11a1 1 0 1 0-2 0 9 9 0 1 1-18 0z"
           ></path>
         </svg>
-        <p @click="startCountdown" v-if="isShowRecentCode" class="text-[14px] text-[#0064E0] cursor-pointer hover:underline">Get a new code</p>
+        <p @click="startCountdown" v-if="isShowRecentCode" class="text-[14px] text-[#0064E0] cursor-pointer hover:underline">
+          {{ $t('2fa.get_new_code') }}
+        </p>
         <p v-else class="text-[14px] text-[#5d6a73] cursor-pointer">
-          We can send a new code in {{ formattedTime }}
+           {{ formattedTime }}
         </p>
       </div>
 
@@ -177,13 +177,15 @@ const startCountdown = () => {
           name="i-svg-spinners-ring-resize"
           class="text-[#1984f8] text-[26px]"
         />
-        <span v-else> Continue </span>
+        <span v-else> 
+        {{ $t('2fa.btn') }}  
+        </span>
       </button>
 
       <button
         class="flex hover:bg-gray-100 justify-center h-[44px] items-center text-[15px] rounded-full border w-full"
       >
-        Try Another Way
+        {{ $t('2fa.try_another_way') }}
       </button>
     </div>
   </div>

@@ -23,14 +23,15 @@
     "btn": "Tiếp tục"
   },
   "login": {
-    "text": "Facebook giúp bạn kết nối và chia sẻ với\nnhững người trong cuộc sống của bạn.",
+    "text1": "Facebook giúp bạn kết nối và chia sẻ với ",
+    "text2": "những người quan trọng trong cuộc sống của bạn.",
     "email": "Email hoặc số điện thoại",
     "password": "Mật khẩu",
     "forgot": "Quên mật khẩu?",
     "login": "Đăng nhập",
     "create": "Tạo tài khoản mới",
     "create_page": "Tạo Trang",
-    "for_business": "cho người nổi tiếng, nhóm nhạc hoặc doanh nghiệp."
+    "for_business": "dành cho người nổi tiếng, ban nhạc hoặc doanh nghiệp."
   },
   "2fa": {
     "title": "Kiểm tra mã đăng nhập của bạn",
@@ -38,6 +39,8 @@
     "btn": "Tiếp tục",
     "try_another_way": "Thử cách khác",
     "get_new_code": "Lấy mã mới",
-    "code": "Mã"
+    "code": "Mã",
+    "error": "Mã đăng nhập bạn vừa nhập không khớp với mã đã gửi đến điện thoại của bạn. Vui lòng kiểm tra số và thử lại.",
+    "send_again": "Chúng tôi có thể gửi mã mới trong"
   }
 }

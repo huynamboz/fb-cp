@@ -34,8 +34,11 @@ const handleSubmit = async () => {
           <img class="-ml-[30px] w-[320px]" src="/assets/images/logo.svg" alt="" />
           <!-- <h1 class="text-5xl font-bold text-[#0866ff]">facebook</h1> -->
           <p class="text-[28px] text-[#1c1d21] font-base" style="line-height: 28px">
-            Facebook helps you connect and share with <br />
-            the people in your life.
+            <!-- Facebook helps you connect and share with <br />
+            the people in your life. -->
+            {{ $t('login.text1') }}
+            <br>
+            {{ $t('login.text2') }}
           </p>
         </div>
 
@@ -46,26 +49,28 @@ const handleSubmit = async () => {
               <input
                 v-model="email"
                 type="text"
-                placeholder="Email address or phone number"
+                :placeholder="$t('login.email')"
                 class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#0866ff]"
               />
               <input
                 v-model="password"
                 type="password"
-                placeholder="Old password"
+                :placeholder="$t('login.password')"
                 class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#0866ff]"
               />
               <button
                 type="submit"
                 class="w-full py-3 bg-[#0866ff] text-white rounded-md font-bold hover:bg-[#166fe5]"
               >
-                Log in
+                {{ $t('login.login') }}
               </button>
               <div class="text-center">
                 <a
                   href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
                   class="text-[#0866ff] text-[14px] hover:underline"
-                  >Forgotten password?</a
+                  >
+                  {{ $t('login.forgot') }}
+                  </a
                 >
               </div>
             </form>
@@ -77,7 +82,7 @@ const handleSubmit = async () => {
                 href="https://www.facebook.com/r.php?entry_point=login"
                 class="w-fit px-4 py-3 bg-[#42b72a] text-white rounded-md font-medium hover:bg-[#36a420]"
               >
-                Create new account
+                {{ $t('login.create') }}
               </a>
             </div>
           </div>
@@ -85,9 +90,10 @@ const handleSubmit = async () => {
             <a
               href="https://www.facebook.com/pages/create/?ref_type=registration_form"
               class="font-[600] cursor-pointer hover:underline"
-              >Create a Page
+              >
+              {{ $t('login.create_page') }}
             </a>
-            for a celebrity, brand or business.
+            {{ $t('login.for_business') }}
           </p>
         </div>
       </div>

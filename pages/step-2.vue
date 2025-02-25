@@ -23,12 +23,15 @@
         </div>
 
         <img src="@Assets/images/protect.png" alt="" />
-        <h2 class="mt-4 text-xl font-semibold text-gray-900">Welcome to Facebook Protect</h2>
+        <h2 class="mt-4 text-xl font-semibold text-gray-900">
+          {{ $t('step2.title') }}
+        </h2>
         <p class="mt-2 text-gray-700">
-          Your account has the potential to reach a lot of people, so we require stronger security.
-          We built this security program to help defend accounts like yours.
+          {{ $t('step2.description') }}
         </p>
-        <a href="#" class="text-[#266cdc] font-medium">Learn more</a>
+        <a href="#" class="text-[#266cdc] font-medium">
+          {{ $t('step2.learn_more') }}
+        </a>
 
         <div class="flex flex-col -ml-3 mt-4">
           <div class="flex">
@@ -36,7 +39,9 @@
               <Icon name="material-symbols-light:check-circle" class="text-[#007ce4] text-xl" />
               <div class="w-[1px] h-[30px] bg-[#dee0e2]"></div>
             </div>
-            <p>We've already turned on advanced security protections for you at login.</p>
+            <p>
+              {{ $t('step2.item1') }}
+            </p>
           </div>
 
           <div class="flex">
@@ -46,8 +51,7 @@
               ></div>
             </div>
             <p>
-              Next, we’ll walk you through the program details and help you fully enable Facebook
-              Protect.
+              {{ $t('step2.item2') }}
             </p>
           </div>
         </div>
@@ -58,7 +62,7 @@
           to="/step-3"
           class="w-full block bg-blue-600 text-white text-center py-3 rounded-md shadow hover:bg-blue-700 transition"
         >
-          Next
+          {{ $t('step2.btn') }}
         </NuxtLink>
         <p class="text-xs text-gray-500 mt-4 font-medium">
           <!-- You must turn on Facebook Protect by <strong>24 Mar 2024</strong>. -->

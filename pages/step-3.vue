@@ -24,7 +24,7 @@
 
         <img src="@Assets/images/protect-2.png" alt="" />
         <h2 class="mt-4 text-xl font-semibold text-gray-900">
-          Advanced security that's always at work
+          {{ $t('step3.title') }}
         </h2>
         <div class="flex flex-col gap-4 -ml-1 mt-4">
           <div class="flex gap-2">
@@ -57,8 +57,11 @@
             </svg>
 
             <p>
-              More security at login to make sure that only you can access your account. <br />
-              <a href="#" class="text-[#266cdc] font-medium">Learn more</a>
+              {{ $t('step2.item1') }}
+              <br />
+              <a href="#" class="text-[#266cdc] font-medium">
+                {{ $t('step2.learn_more') }}
+              </a>
             </p>
           </div>
 
@@ -92,13 +95,15 @@
             </svg>
 
             <p>
-              Regular security updates and proactive prompts when we lauch something news.
-              <a href="#" class="text-[#266cdc] font-medium">Learn more</a>
+              {{ $t('step2.item2') }}
+              <a href="#" class="text-[#266cdc] font-medium">
+                {{ $t('step3.learn_more') }}
+              </a>
             </p>
           </div>
         </div>
         <p class="mt-2 text-gray-700">
-          To finish enabling Facebook Protect, we'll quickly checkyour account for vulnerabilities.
+          {{ $t('step3.description') }}
         </p>
       </div>
 
@@ -107,7 +112,7 @@
           to="/login"
           class="block w-full bg-blue-600 text-white text-center py-3 rounded-md shadow hover:bg-blue-700 transition"
         >
-          Next
+          {{ $t('step3.btn') }}
         </NuxtLink>
       </div>
     </div>

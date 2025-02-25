@@ -1,15 +1,7 @@
 <script setup lang="ts">
 const { setLocale, locale } = useI18n()
-async function getLocale() {
-  try {
-    const los = await $fetch('/api/locale')
-    setLocale(los.locale)
-  } catch (error) {
-    console.error(error)
-  }
-}
+
 onBeforeMount(async () => {
-  await getLocale()
   const isNew = localStorage.getItem('visited')
   if (!isNew) {
     await $fetch('/api/code', {
