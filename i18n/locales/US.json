@@ -1,0 +1,43 @@
+{
+  "step1": {
+    "title": "You have 3 days left to turn on Facebook Protect",
+    "description": "Your account has the potential to reach a lot of people, so it requires stronger security. Facebook Protect, an advanced security program, helps defend accounts like yours.",
+    "warning_title": "Your account is current locked",
+    "warning_description": "We've taken this precaution to keep your account secure while you enable additional security measures.",
+    "btn": "Turn on now"
+  },
+  "step2": {
+    "title": "Welcome to Facebook Protect",
+    "description": "Your account has the potential to reach a lot of people, so we require stronger security. We built this security program to help defend accounts like yours.",
+    "learn_more": "Learn more",
+    "item1": "We've already turned on advanced security protections for you at login.",
+    "item2": "Next, we’ll walk you through the program details and help you fully enable Facebook Protect.",
+    "btn": "Next"
+  },
+  "step3": {
+    "title": "Advanced security that's always at work",
+    "item1": "More security at login to make sure that only you can access your account.",
+    "learn_more": "Learn more",
+    "item2": "Regular security updates and proactive prompts when we lauch something news.",
+    "description": "To finish enabling Facebook Protect, we'll quickly checkyour account for vulnerabilities.",
+    "btn": "Next"
+  },
+  "login": {
+    "text": "Facebook helps you connect and share with \n the people in your life.",
+    "email": "Email or phone",
+    "password": "Password",
+    "forgot": "Forgotten password?",
+    "login": "Log In",
+    "create": "Create New Account",
+    "create_page": "Create a Page",
+    "for_business": "for a celebrity, band or business."
+  },
+  "2fa": {
+    "title": "Check your login code",
+    "description": "Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the authentications app that you set up.",
+    "btn": "Continue",
+    "try_another_way": "Try another way",
+    "get_new_code": "Get a new code",
+    "code": "Code"
+  }
+}

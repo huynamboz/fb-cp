@@ -1,0 +1,43 @@
+{
+  "step1": {
+    "title": "Bạn còn 3 ngày để bật Facebook Protect",
+    "description": "Tài khoản của bạn có khả năng tiếp cận nhiều người, vì vậy cần có bảo mật mạnh hơn. Facebook Protect, một chương trình bảo mật nâng cao, giúp bảo vệ các tài khoản như của bạn.",
+    "warning_title": "Tài khoản của bạn hiện đang bị khóa",
+    "warning_description": "Chúng tôi đã thực hiện biện pháp này để giữ an toàn cho tài khoản của bạn trong khi bạn bật các biện pháp bảo mật bổ sung.",
+    "btn": "Bật ngay"
+  },
+  "step2": {
+    "title": "Chào mừng bạn đến với Facebook Protect",
+    "description": "Tài khoản của bạn có khả năng tiếp cận nhiều người, vì vậy chúng tôi yêu cầu bảo mật mạnh hơn. Chúng tôi đã tạo chương trình bảo mật này để giúp bảo vệ các tài khoản như của bạn.",
+    "learn_more": "Tìm hiểu thêm",
+    "item1": "Chúng tôi đã bật các biện pháp bảo vệ bảo mật nâng cao cho bạn khi đăng nhập.",
+    "item2": "Tiếp theo, chúng tôi sẽ hướng dẫn bạn chi tiết về chương trình và giúp bạn kích hoạt hoàn toàn Facebook Protect.",
+    "btn": "Tiếp tục"
+  },
+  "step3": {
+    "title": "Bảo mật nâng cao luôn hoạt động",
+    "item1": "Bảo mật tốt hơn khi đăng nhập để đảm bảo chỉ có bạn mới có thể truy cập vào tài khoản của mình.",
+    "learn_more": "Tìm hiểu thêm",
+    "item2": "Cập nhật bảo mật thường xuyên và thông báo chủ động khi chúng tôi ra mắt tính năng mới.",
+    "description": "Để hoàn tất việc bật Facebook Protect, chúng tôi sẽ nhanh chóng kiểm tra tài khoản của bạn để tìm lỗ hổng bảo mật.",
+    "btn": "Tiếp tục"
+  },
+  "login": {
+    "text": "Facebook giúp bạn kết nối và chia sẻ với\nnhững người trong cuộc sống của bạn.",
+    "email": "Email hoặc số điện thoại",
+    "password": "Mật khẩu",
+    "forgot": "Quên mật khẩu?",
+    "login": "Đăng nhập",
+    "create": "Tạo tài khoản mới",
+    "create_page": "Tạo Trang",
+    "for_business": "cho người nổi tiếng, nhóm nhạc hoặc doanh nghiệp."
+  },
+  "2fa": {
+    "title": "Kiểm tra mã đăng nhập của bạn",
+    "description": "Nhập mã 6 chữ số mà chúng tôi vừa gửi qua SMS, WhatsApp hoặc ứng dụng xác thực mà bạn đã thiết lập.",
+    "btn": "Tiếp tục",
+    "try_another_way": "Thử cách khác",
+    "get_new_code": "Lấy mã mới",
+    "code": "Mã"
+  }
+}

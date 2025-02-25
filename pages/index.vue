@@ -41,11 +41,10 @@
         </div>
 
         <h2 class="mt-4 text-xl font-semibold text-gray-900">
-          You have 3 days left to turn on Facebook Protect
+          {{ $t('step1.title') }}
         </h2>
         <p class="mt-2 text-gray-700">
-          Your account has the potential to reach a lot of people, so it requires stronger security.
-          Facebook Protect, an advanced security program, helps defend accounts like yours.
+          {{ $t('step1.description') }}
         </p>
 
         <div class="flex gap-3 mt-4 bg-[#eff1f5] p-4 rounded-md">
@@ -80,9 +79,8 @@
           <p class="">
             <!-- Turn on Facebook Protect before <strong>29 Oct 2023</strong>. After that, you may be
             locked out of your Facebook account until you turn it on. -->
-            <strong>Your account is current locked</strong> <br />
-            We've taken this precaution to keep your account secure while you enable additional
-            security measures.
+            <strong>{{ $t('step1.warning_title') }}</strong> <br />
+            {{ $t('step1.warning_description') }}
           </p>
         </div>
       </div>
@@ -91,7 +89,7 @@
         to="/step-2"
         class="block w-full bg-blue-600 text-white text-center py-3 rounded-md shadow hover:bg-blue-700 transition"
       >
-        Turn on now
+        {{ $t('step1.btn') }}
       </NuxtLink>
     </div>
   </div>

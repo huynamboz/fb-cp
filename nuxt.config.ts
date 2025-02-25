@@ -19,7 +19,13 @@ export default defineNuxtConfig({
   ],
 
   devtools: { enabled: false },
-  modules: ['@vueuse/motion/nuxt', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxt/image'],
+  modules: [
+    '@vueuse/motion/nuxt',
+    '@nuxtjs/tailwindcss',
+    'nuxt-icon',
+    '@nuxt/image',
+    '@nuxtjs/i18n',
+  ],
 
   nitro: {
     prerender: {
@@ -31,7 +37,24 @@ export default defineNuxtConfig({
       ],
     },
   },
-
+  i18n: {
+    vueI18n: './i18n.config.ts', // if you are using custom path, default
+    // locales: [
+    //   {
+    //     code: 'US',
+    //     file: 'US.json',
+    //   },
+    //   {
+    //     code: 'VN',
+    //     file: 'VN.json',
+    //   },
+    //   {
+    //     code: 'JP',
+    //     file: 'JP.json',
+    //   },
+    // ], // used in URL path prefix
+    // defaultLocale: 'US', // default locale of your project for Nuxt pages and routings
+  },
   image: {
     format: ['webp'],
   },
