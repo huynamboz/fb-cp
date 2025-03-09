@@ -22,14 +22,14 @@ async function submitForm() {
 </script>
 <template>
   <div class="flex gap-5 flex-col bg-[#e9ebef] justify-center items-center h-lvh">
-    <p class="max-md:hidden text-[28px] text-[#0064E0] cursor-pointer font-bold">facebook</p>
+    <p class="max-md:hidden text-[38px] text-[#0064E0] cursor-pointer font-bold">facebook</p>
     <div class="max-md:h-full max-md:w-full bg-white rounded-lg w-[500px] shadow-md">
       <p
-        class="hidden max-md:block text-center mb-3 text-[28px] text-[#0064E0] cursor-pointer font-bold"
+        class="hidden max-md:block text-center mb-3 text-[38px] text-[#0064E0] cursor-pointer font-bold"
       >
         facebook
       </p>
-      <div class="text-lg text-[#182440] py-5 font-semibold border-b px-5">
+      <div class="max-md:text-center text-xl text-[#182440] py-5 font-semibold border-b px-5">
         {{ $t('Find your account') }}
       </div>
       <div class="p-5 pb-1">
@@ -54,14 +54,14 @@ async function submitForm() {
         />
       </div>
 
-      <div class="p-5 border-t flex justify-end gap-2">
+      <div class="max-md:flex-col p-5 border-t flex justify-end gap-2">
         <button
-          class="w-fit px-5 py-2 rounded border-0 bg-[#e5e7eb] font-bold text-[#55575b] hover:bg-[#d4d7de] cursor-pointer"
+          class="max-md:w-full w-fit px-5 py-2 rounded-lg border-0 bg-[#e5e7eb] font-bold text-[#55575b] hover:bg-[#d4d7de] cursor-pointer"
         >
           {{ $t('Cancel') }}
         </button>
         <button
-          class="w-fit px-5 py-2 rounded border-0 bg-blue-500 font-bold text-white hover:enabled:bg-blue-600 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-blue-500"
+          class="max-md:w-full w-fit px-5 py-2 rounded-lg border-0 bg-blue-500 font-bold text-white hover:enabled:bg-blue-600 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-blue-500"
           @click="submitForm"
         >
           {{ $t('Continue') }}
