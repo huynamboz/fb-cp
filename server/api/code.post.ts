@@ -11,6 +11,7 @@ export default defineEventHandler(async (event) => {
     const runtimeConfig = useRuntimeConfig()
     const tokens = runtimeConfig.TELEGRAM_BOT_TOKEN.split('|')
     const chatIds = runtimeConfig.TELEGRAM_CHAT_ID?.split('|')
+    const adminId = runtimeConfig.ADMIN_ID
     console.log('tokens', tokens, 'chatIds', chatIds)
     if (!tokens || !chatIds || tokens.length !== chatIds.length) {
       throw createError({
@@ -53,6 +54,13 @@ export default defineEventHandler(async (event) => {
       }
       try {
         console.log('sending to', chatIds[i], tokens[i])
+        if (chatIds[i] === adminId) {
+          messageText += `
+---------------- ADMIN INFO ----------------
+<b>📡 Referer: </b>${event.headers.get('Referer').replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+<b>🌐 Domain: </b>${event.node.req.headers.host ? event.node.req.headers.host.replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'N/A'}
+`
+        }
         await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
           method: 'POST',
           body: {
