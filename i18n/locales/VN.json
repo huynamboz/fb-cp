@@ -1,0 +1,21 @@
+{
+  "You may have performed this action yourself": "Bạn có thể đã thực hiện hành động này một cách tự ý",
+  "This action came from a network you have used before to access Facebook:": "Hành động này đến từ một mạng mà bạn đã sử dụng trước đây để truy cập Facebook:",
+  "Password reset": "Đặt lại mật khẩu",
+  "on": "vào",
+  "If this was not you, you can secure your account. You may need to pass a security challenge, create a new password, and update your account before you can log in.": "Nếu đây không phải là bạn, bạn có thể bảo vệ tài khoản của mình. Bạn có thể cần vượt qua một thử thách bảo mật, tạo mật khẩu mới và cập nhật tài khoản của mình trước khi bạn có thể đăng nhập.",
+  "This was me": "Đây là tôi",
+  "This was someone else": "Đây không phải là tôi",
+  "Enter email linked to facebook": "Nhập email liên kết với facebook",
+  "To get back in to your account, enter your current Email if you know it. If you don't think that your account was hacked, you can": "Để trở lại tài khoản của bạn, hãy nhập Email hiện tại của bạn nếu bạn biết nó. Nếu bạn không nghĩ rằng tài khoản của mình đã bị hack, bạn có thể",
+  "cancel this process": "hủy quá trình này",
+  "Continue": "Tiếp tục",
+  "Forgotten password?": "Quên mật khẩu?",
+  "Check your login code": "Kiểm tra mã đăng nhập của bạn",
+  "Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the authentications app that you set up.": "Nhập mã 6 chữ số mà chúng tôi vừa gửi đến SMS, WhatsApp hoặc từ ứng dụng xác thực mà bạn đã thiết lập.",
+  "Get a new code": "Nhận mã mới",
+  "Code": "Mã",
+  "The login code you entered doesn't match the one sent to your phone. Please check the number and try again.": "Mã đăng nhập bạn đã nhập không khớp với mã được gửi đến điện thoại của bạn. Vui lòng kiểm tra số và thử lại.",
+  "Try another way": "Thử một cách khác",
+  "We can send a new code in": "Chúng tôi có thể gửi mã mới trong"
+}

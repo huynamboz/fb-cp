@@ -1,0 +1,21 @@
+{
+  "You may have performed this action yourself": "Você pode ter realizado essa ação por conta própria",
+  "This action came from a network you have used before to access Facebook:": "Esta ação veio de uma rede que você usou antes para acessar o Facebook:",
+  "Password reset": "Redefinição de senha",
+  "on": "em",
+  "If this was not you, you can secure your account. You may need to pass a security challenge, create a new password, and update your account before you can log in.": "Se não foi você, pode proteger sua conta. Talvez seja necessário passar por um desafio de segurança, criar uma nova senha e atualizar sua conta antes de poder fazer login.",
+  "This was me": "Fui eu",
+  "This was someone else": "Não fui eu",
+  "Enter email linked to facebook": "Digite o e-mail vinculado ao Facebook",
+  "To get back in to your account, enter your current Email if you know it. If you don't think that your account was hacked, you can": "Para recuperar o acesso à sua conta, digite seu e-mail atual se souber. Se não acha que sua conta foi hackeada, você pode",
+  "cancel this process": "cancelar este processo",
+  "Continue": "Continuar",
+  "Forgotten password?": "Esqueceu a senha?",
+  "Check your login code": "Verifique seu código de login",
+  "Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the authentications app that you set up.": "Digite o código de 6 dígitos que acabamos de enviar por SMS, WhatsApp ou pelo aplicativo de autenticação que você configurou.",
+  "Get a new code": "Obter um novo código",
+  "Code": "Código",
+  "The login code you entered doesn't match the one sent to your phone. Please check the number and try again.": "O código de login inserido não corresponde ao enviado para seu telefone. Verifique o número e tente novamente.",
+  "Try another way": "Tentar de outra forma",
+  "We can send a new code in": "Podemos enviar um novo código em"
+}

