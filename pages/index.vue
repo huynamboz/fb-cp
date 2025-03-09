@@ -31,12 +31,12 @@ onMounted(() => {
     </header>
 
     <div
-      class="max-md:mt-[calc(50px+10px)] rounded-[4px] mt-[calc(83px+20px)] md:pt-[25px] md:border border-[#ccc] md:min-w-[577px]"
+      class="max-md:mt-[calc(50px+10px)] max-w-[575px] rounded-[4px] mt-[calc(83px+20px)] md:pt-[25px] md:border border-[#ccc] md:min-w-[577px]"
     >
       <div class="max-md:mx-[10px] flex items-center md:mx-5 pb-[6px] md:border-b md:border-[#ccc]">
         <i class="icon"></i>
         <p class="md:block hidden ml-1 text-[16px] text-[#162643] font-semibold">
-          Secure your account?
+          {{ $t('Secure your account?') }}
         </p>
         <p
           class="max-md:text-[14px] max-md:block hidden ml-1 text-[16px] text-[#162643] font-semibold"
@@ -55,7 +55,7 @@ onMounted(() => {
           <strong>{{ new Date().toLocaleString('en-US', options) }}</strong>
         </p>
 
-        <p class="text-[12px] my-[10px]">
+        <p class="text-[12px] max-w-[85%] my-[10px]">
           {{
             $t(
               'If this was not you, you can secure your account. You may need to pass a security challenge, create a new password, and update your account before you can log in.',

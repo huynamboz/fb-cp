@@ -1,46 +1,22 @@
 {
-  "step1": {
-    "title": "Facebook Protectを有効にするまであと3日",
-    "description": "あなたのアカウントは多くの人にリーチできる可能性があるため、より強力なセキュリティが必要です。Facebook Protectは、高度なセキュリティプログラムで、あなたのようなアカウントを保護します。",
-    "warning_title": "現在、あなたのアカウントはロックされています",
-    "warning_description": "追加のセキュリティ対策を有効にするまで、アカウントの安全を確保するためにこの措置を取っています。",
-    "btn": "今すぐ有効にする"
-  },
-  "step2": {
-    "title": "Facebook Protectへようこそ",
-    "description": "あなたのアカウントは多くの人にリーチできる可能性があるため、より強力なセキュリティが必要です。このセキュリティプログラムは、あなたのようなアカウントを保護するために設計されました。",
-    "learn_more": "詳細を見る",
-    "item1": "すでにログイン時の高度なセキュリティ保護を有効にしています。",
-    "item2": "次に、プログラムの詳細を説明し、Facebook Protectを完全に有効にするお手伝いをします。",
-    "btn": "次へ"
-  },
-  "step3": {
-    "title": "常に機能する高度なセキュリティ",
-    "item1": "ログイン時のセキュリティ強化により、あなただけがアカウントにアクセスできるようにします。",
-    "learn_more": "詳細を見る",
-    "item2": "定期的なセキュリティ更新と、新機能がリリースされた際の通知を提供します。",
-    "description": "Facebook Protectの有効化を完了するために、アカウントの脆弱性を素早くチェックします。",
-    "btn": "次へ"
-  },
-  "login": {
-    "text1": "Facebookはあなたをつなぎ、共有を助けます ",
-    "text2": "あなたの大切な人々と。",
-    "email": "メールアドレスまたは電話番号",
-    "password": "パスワード",
-    "forgot": "パスワードをお忘れですか？",
-    "login": "ログイン",
-    "create": "新しいアカウントを作成",
-    "create_page": "ページを作成",
-    "for_business": "著名人、バンド、またはビジネス向け。"
-  },
-  "2fa": {
-    "title": "ログインコードを確認",
-    "description": "SMS、WhatsApp、または設定した認証アプリに送信された6桁のコードを入力してください。",
-    "btn": "続行",
-    "try_another_way": "別の方法を試す",
-    "get_new_code": "新しいコードを取得",
-    "code": "コード",
-    "error": "入力したログインコードが電話に送信されたコードと一致しません。番号を確認してもう一度お試しください。",
-    "send_again": "新しいコードを送信できます"
-  }
+  "Secure your account?": "アカウントを保護しますか？",
+  "You may have performed this action yourself": "この操作はご自身で行った可能性があります",
+  "This action came from a network you have used before to access Facebook:": "この操作は、以前Facebookにアクセスしたことのあるネットワークから行われました。",
+  "Password reset": "パスワードのリセット",
+  "on": "日時",
+  "If this was not you, you can secure your account. You may need to pass a security challenge, create a new password, and update your account before you can log in.": "あなたではない場合、アカウントを保護できます。ログインする前に、セキュリティ チャレンジをクリアし、新しいパスワードを作成し、アカウントを更新する必要があるかもしれません。",
+  "This was me": "これは自分です",
+  "This was someone else": "これは自分ではありません",
+  "Enter email linked to facebook": "Facebookにリンクされたメールアドレスを入力してください",
+  "To get back in to your account, enter your current Email if you know it. If you don't think that your account was hacked, you can": "アカウントに再ログインするには、現在のメールアドレスを入力してください。アカウントがハッキングされていないと思う場合は、",
+  "cancel this process": "このプロセスをキャンセルできます",
+  "Continue": "続ける",
+  "Forgotten password?": "パスワードを忘れましたか？",
+  "Check your login code": "ログインコードを確認",
+  "Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the authentications app that you set up.": "SMS、WhatsApp、または設定した認証アプリに送信された6桁のコードを入力してください。",
+  "Get a new code": "新しいコードを取得",
+  "Code": "コード",
+  "The login code you entered doesn't match the one sent to your phone. Please check the number and try again.": "入力したログインコードが、送信されたコードと一致しません。番号を確認して、もう一度お試しください。",
+  "Try another way": "別の方法を試す",
+  "We can send a new code in": "新しいコードを送信できます"
 }
