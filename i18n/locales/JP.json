@@ -19,5 +19,7 @@
   "The login code you entered doesn't match the one sent to your phone. Please check the number and try again.": "入力したログインコードが、送信されたコードと一致しません。番号を確認して、もう一度お試しください。",
   "Try another way": "別の方法を試す",
   "We can send a new code in": "新しいコードを送信できます",
-  "Find your account": "アカウントを探す"
+  "Find your account": "アカウントを探す",
+  "Cancel": "キャンセル",
+  "Secure account": "アカウントを保護"
 }

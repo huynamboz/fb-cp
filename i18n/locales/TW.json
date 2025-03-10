@@ -19,5 +19,7 @@
   "The login code you entered doesn't match the one sent to your phone. Please check the number and try again.": "您輸入的登入驗證碼與發送到您手機的驗證碼不匹配。請檢查號碼並重試。",
   "Try another way": "嘗試其他方式",
   "We can send a new code in": "我們可以在以下時間內發送新驗證碼",
-  "Find your account": "尋找您的帳戶"
+  "Find your account": "尋找您的帳戶",
+  "Cancel": "取消",
+  "Secure account": "保護帳戶"
 }

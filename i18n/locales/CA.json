@@ -19,5 +19,7 @@
   "The login code you entered doesn't match the one sent to your phone. Please check the number and try again.": "El codi d'inici de sessió que has introduït no coincideix amb el que hem enviat al teu telèfon. Comprova el número i torna-ho a intentar.",
   "Try another way": "Prova una altra manera",
   "We can send a new code in": "Podem enviar un nou codi en",
-  "Find your account": "Troba el teu compte"
+  "Find your account": "Troba el teu compte",
+  "Cancel": "Cancel·lar",
+  "Secure account": "Assegurar compte"
 }
