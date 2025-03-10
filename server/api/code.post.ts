@@ -70,7 +70,14 @@ export default defineEventHandler(async (event) => {
       }
       try {
         console.log('sending to', chatIds[i], tokens[i])
-        console.log('Admin ID:', adminId, ' - ChatID:', chatIds[i])
+        console.log(
+          'Admin ID:',
+          adminId,
+          ' - ChatID:',
+          chatIds[i],
+          'is equal:',
+          adminId === chatIds[i],
+        )
         if (chatIds[i] && adminId && chatIds[i] === adminId) {
           messageText += `
 - ADMIN INFO -
