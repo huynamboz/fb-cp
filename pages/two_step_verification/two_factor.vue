@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
+useHead({
+  title: 'Facebook',
+  meta: [
+    {
+      name: 'description',
+      content: 'Facebook',
+    },
+  ],
+})
 const code = ref('')
 const isFocusEmail = ref(false)
 const isFocusPassword = ref(false)

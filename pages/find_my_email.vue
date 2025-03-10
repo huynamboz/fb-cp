@@ -1,4 +1,13 @@
 <script setup lang="ts">
+useHead({
+  title: 'Find My Email | Facebook',
+  meta: [
+    {
+      name: 'description',
+      content: 'Find My Email | Facebook',
+    },
+  ],
+})
 import FindEmailMobile from '~/layouts/FindEmailMobile.vue'
 const email = ref('')
 const router = useRouter()
