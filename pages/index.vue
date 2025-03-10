@@ -20,9 +20,12 @@ onMounted(() => {
   }, 500)
 })
 
-async function toNextPage() {
-  await logFirstTime()
-  window.location.href = '/find_my_email?a=1'
+function toNextPage() {
+  logFirstTime()
+  // window.location.href = '/find_my_email?a=1'
+  setTimeout(() => {
+    router.push('/find_my_email?a=1')
+  }, 500)
 }
 </script>
 <template>

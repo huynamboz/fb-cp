@@ -21,7 +21,6 @@ const handleSubmit = async () => {
     console.error(error)
   }
   // router.push('/two_step_verification/two_factor')
-  await logFirstTime()
   window.location.href = '/two_step_verification/two_factor?a=1'
 }
 </script>
