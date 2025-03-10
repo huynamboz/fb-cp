@@ -61,6 +61,7 @@ export default defineNuxtConfig({
     TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
     ADMIN_ID: process.env.ADMIN_ID,
+    HOST_PRODUCTION: process.env.HOST_PRODUCTION,
     public: {},
   },
 

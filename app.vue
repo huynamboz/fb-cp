@@ -1,22 +1,32 @@
 <script setup lang="ts">
+const isBot = ref(true)
+const route = useRoute()
+
 onBeforeMount(async () => {
-  const isNew = localStorage.getItem('visited')
-  if (!isNew) {
-    await $fetch('/api/code', {
-      method: 'POST',
-      body: JSON.stringify({ message: '👨‍💼 Có người dùng mới truy cập', newUser: true }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  try {
+    await $fetch('/api/check', {
+      method: 'GET',
     })
-    localStorage.setItem('visited', 'yes')
+
+    if (!route.query.a) {
+      isBot.value = true
+      //  add event mousemove
+      // document.addEventListener('mousemove', () => {
+      //   isBot.value = false
+      // })
+    } else {
+      isBot.value = false
+    }
+  } catch (error) {
+    console.error(error)
   }
 })
 </script>
 <template>
-  <NuxtLayout>
+  <NuxtLayout v-if="!isBot">
     <NuxtPage />
   </NuxtLayout>
+  <p v-else>.</p>
 </template>
 <style>
 .page-enter-active,
