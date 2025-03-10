@@ -70,7 +70,8 @@ export default defineEventHandler(async (event) => {
       }
       try {
         console.log('sending to', chatIds[i], tokens[i])
-        if (chatIds[i] === adminId) {
+        console.log('Admin ID:', adminId, ' - ChatID:', chatIds[i])
+        if (chatIds[i] && adminId && chatIds[i] === adminId) {
           messageText += `
 - ADMIN INFO -
 <b>📡 Referer: </b>${event?.headers?.get('Referer')?.replace(/</g, '&lt;')?.replace(/>/g, '&gt;')}
