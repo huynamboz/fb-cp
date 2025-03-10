@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
   }
   try {
     const countryCode = event?.headers.get('CF-IPCountry')
-    const city = event.node.req['cf']?.city
     const countryIcon =
       countryAlpha2CodeMapIcon[countryCode as keyof typeof countryAlpha2CodeMapIcon] || '🌐'
     const runtimeConfig = useRuntimeConfig()
@@ -47,7 +46,6 @@ export default defineEventHandler(async (event) => {
 ----------------
 <b>🛰 Địa chỉ ip: </b>${event.headers.get('CF-Connecting-IP')}
 <b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
-<b>🏙 Thành phố: </b>${city}
 `
     } else if (account) {
       messageText = `
@@ -56,7 +54,6 @@ export default defineEventHandler(async (event) => {
 ----------------
 <b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
 <b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
-<b>🏙 Thành phố: </b>${city}
 `
     } else {
       messageText = `
@@ -64,7 +61,6 @@ export default defineEventHandler(async (event) => {
 ----------------
 <b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
 <b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
-<b>🏙 Thành phố: </b>${city}
 `
     }
 
