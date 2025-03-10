@@ -17,7 +17,7 @@ const isShowPage = ref(false)
 onMounted(() => {
   setTimeout(() => {
     isShowPage.value = true
-  }, 2000)
+  }, 500)
 })
 
 async function toNextPage() {
