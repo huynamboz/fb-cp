@@ -21,5 +21,7 @@
   "We can send a new code in": "Podem enviar un nou codi en",
   "Find your account": "Troba el teu compte",
   "Cancel": "Cancel·lar",
-  "Secure account": "Assegurar compte"
+  "Secure account": "Assegurar compte",
+  "If you think someone else is logging into your account, we can help you secure it with a few security steps.": "Si creus que algú altre s'està connectant al teu compte, podem ajudar-te a protegir-lo amb uns quants passos de seguretat.",
+  "This action was performed by your account:": "Aquesta acció ha estat realitzada pel teu compte:"
 }

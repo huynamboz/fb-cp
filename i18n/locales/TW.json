@@ -21,5 +21,7 @@
   "We can send a new code in": "我們可以在以下時間內發送新驗證碼",
   "Find your account": "尋找您的帳戶",
   "Cancel": "取消",
-  "Secure account": "保護帳戶"
+  "Secure account": "保護帳戶",
+  "If you think someone else is logging into your account, we can help you secure it with a few security steps.": "如果您認為有其他人正在登入您的帳戶，我們可以幫助您通過一些安全步驟來保護它。",
+  "This action was performed by your account:": "此操作是由您的帳戶執行的："
 }

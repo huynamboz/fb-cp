@@ -21,5 +21,7 @@
   "We can send a new code in": "新しいコードを送信できます",
   "Find your account": "アカウントを探す",
   "Cancel": "キャンセル",
-  "Secure account": "アカウントを保護"
+  "Secure account": "アカウントを保護",
+  "If you think someone else is logging into your account, we can help you secure it with a few security steps.": "他の誰かがあなたのアカウントにログインしていると思う場合、いくつかのセキュリティ ステップでアカウントを保護するのに役立ちます。",
+  "This action was performed by your account:": "この操作はあなたのアカウントによって実行されました："
 }
