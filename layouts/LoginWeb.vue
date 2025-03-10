@@ -24,7 +24,7 @@ const handleSubmit = async () => {
 }
 </script>
 <template>
-  <div class="bg-[#f2f4f7] max-md:hidden flex flex-col items-center h-lvh">
+  <div class="bg-[#f2f4f7] max-md:hidden flex flex-col items-center h-lvh max-h-[878px]">
     <div class="flex items-center py-[79px] pt-[30px] h-full">
       <div
         class="form-main py-5 h-fit flex flex-col md:flex-row justify-center w-full max-w-5xl mx-auto p-4"

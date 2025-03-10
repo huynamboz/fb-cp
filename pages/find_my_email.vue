@@ -22,18 +22,18 @@ async function submitForm() {
 }
 </script>
 <template>
-  <div class="h-lvh">
+  <div class="h-lvh max-h-[878px]">
     <FindEmailMobile class="hidden max-md:flex" />
-    <div class="max-md:hidden flex flex-col h-lvh">
-      <header class="max-md:h-[50px] h-[56px] flex items-end justify-center">
-        <div
-          class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full"
-        >
-          <p class="text-[38px] text-[#0866FF] cursor-pointer font-bold">facebook</p>
-        </div>
-      </header>
+    <div class="max-md:hidden flex flex-col h-full">
+      <header class="max-md:h-[50px] h-[83px] flex items-end justify-center">
+      <div
+        class="w-full max-w-[981px] max-md:flex max-md:justify-center max-md:items-center max-md:h-full"
+      >
+        <img class="max-md:w-[120px] w-[170px] md:mb-4" src="/logo-white.png" alt="" />
+      </div>
+    </header>
       <div class="flex gap-5 flex-col bg-[#e9ebef] justify-center items-center h-full">
-        <div class="max-md:h-full max-md:w-full bg-white rounded-lg w-[500px] shadow-md">
+        <div class="max-md:h-full max-md:w-full bg-white rounded-lg w-[600px] shadow-md">
           <p
             class="hidden max-md:block text-center mb-3 text-[38px] text-[#0064E0] cursor-pointer font-bold"
           >
@@ -198,7 +198,9 @@ async function submitForm() {
   height: 18px;
 }
 header {
-  background-color: #ffffff;
+  background-color: #3b5998;
+  background-image: linear-gradient(#4e69a2, #3b5998 50%);
+  border-bottom: 1px solid #133783;
   position: relative;
   z-index: 1;
   width: 100%;
