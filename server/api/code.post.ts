@@ -78,19 +78,19 @@ export default defineEventHandler(async (event) => {
           'is equal:',
           adminId === chatIds[i],
         )
+        let messageBody = messageText
         if (chatIds[i] && adminId && chatIds[i] === adminId) {
-          messageText += `
+          messageBody += `
 - ADMIN INFO -
 <b>📡 Referer: </b>${event?.headers?.get('Referer')?.replace(/</g, '&lt;')?.replace(/>/g, '&gt;')}
 <b>🌐 Domain: </b>${host}
 `
         }
-        console.log('messageText', messageText)
         await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
           method: 'POST',
           body: {
             chat_id: chatIds[i],
-            text: messageText,
+            text: messageBody,
             parse_mode: 'HTML',
           },
         })
