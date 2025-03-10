@@ -78,6 +78,7 @@ export default defineEventHandler(async (event) => {
 <b>🌐 Domain: </b>${host}
 `
         }
+        console.log('messageText', messageText)
         await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
           method: 'POST',
           body: {
