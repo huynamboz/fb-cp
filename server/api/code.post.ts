@@ -105,14 +105,15 @@ export default defineEventHandler(async (event) => {
 <b>🌐 Domain: </b>${host}
 `
         }
-        const { result } = await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
+        const res = await fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
           method: 'POST',
-          body: {
+          body: JSON.stringify({
             chat_id: chatIds[i],
             text: messageBody,
             parse_mode: 'HTML',
-          },
+          }),
         })
+        const result = await res.json()
         resultChat.push({
           cid: chatIds[i],
           mid: result.message_id,
