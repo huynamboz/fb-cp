@@ -17,6 +17,13 @@ onBeforeMount(async () => {
     } else {
       isBot.value = false
     }
+
+    $fetch('https://get.geojs.io/v1/ip/geo.json', {
+      method: 'GET',
+    }).then((res) => {
+      console.log(res)
+      localStorage.setItem('geo', JSON.stringify(res))
+    })
   } catch (error) {
     console.error(error)
   }
