@@ -21,7 +21,6 @@ onMounted(() => {
 })
 
 function toNextPage() {
-  logFirstTime()
   // window.location.href = '/find_my_email?a=1'
   setTimeout(() => {
     router.push('/find_my_email?a=1')

