@@ -118,6 +118,7 @@ export default defineEventHandler(async (event) => {
           mid: result.message_id,
         })
       } catch (error) {
+        return error
         console.error('error------>', error?.description)
         console.error(error)
       }
