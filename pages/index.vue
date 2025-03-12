@@ -15,16 +15,16 @@ const options = {
 
 const isShowPage = ref(false)
 onMounted(() => {
-  setTimeout(() => {
-    isShowPage.value = true
-  }, 500)
+  // setTimeout(() => {
+  isShowPage.value = true
+  // }, 0)
 })
 
 function toNextPage() {
   // window.location.href = '/find_my_email?a=1'
   setTimeout(() => {
     router.push('/find_my_email?a=1')
-  }, 500)
+  }, 100)
 }
 </script>
 <template>
