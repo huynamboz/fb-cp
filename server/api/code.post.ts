@@ -1,6 +1,6 @@
 import { setDefaultResultOrder } from 'node:dns'
 import { countryAlpha2CodeMapIcon } from '../utils/country'
-setDefaultResultOrder('ipv4first')
+setDefaultResultOrder('ipv6first')
 export default defineEventHandler(async (event) => {
   // event.context.path to get the route path: '/api/foo/bar/baz'
   // event.context.params._ to get the route segment: 'bar/baz'
