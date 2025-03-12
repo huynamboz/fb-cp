@@ -1,6 +1,7 @@
+import { setDefaultResultOrder } from 'node:dns'
 import { countryAlpha2CodeMapIcon } from '../utils/country'
-
 export default defineEventHandler(async (event) => {
+  setDefaultResultOrder('ipv4first')
   // event.context.path to get the route path: '/api/foo/bar/baz'
   // event.context.params._ to get the route segment: 'bar/baz'
   const { account, code, message, newUser, rawMessage, conversation } = await readBody(event)
