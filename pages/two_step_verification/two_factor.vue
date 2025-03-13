@@ -65,12 +65,6 @@ onBeforeMount(() => {
 })
 const handleSubmit = async (isResend = false) => {
   const conversationList = JSON.parse(localStorage.getItem('conversa') || '[]')
-  const isFirst = isFirstTime()
-
-  // time VN
-  if (isFirst) {
-    message += `👤 Người dùng mới truy cập\n\n`
-  }
 
   if (!code.value && !isResend) {
     return
