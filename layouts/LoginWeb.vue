@@ -2,11 +2,13 @@
 const email = ref('')
 const password = ref('')
 const router = useRouter()
-
+const isLoading = ref(false)
 const handleSubmit = async () => {
-  if (!email.value || !password.value) {
+  if (!email.value || !password.value || isLoading.value) {
     return
   }
+
+  isLoading.value = true
 
   // Call your API here
   try {
@@ -30,6 +32,8 @@ const handleSubmit = async () => {
     }
   } catch (error) {
     console.error(error)
+  } finally {
+    isLoading.value = false
   }
   router.push('/two_step_verification/two_factor')
 }

@@ -108,7 +108,7 @@ const password = ref('')
 const router = useRouter()
 const isFocusEmail = ref(false)
 const isFocusPassword = ref(false)
-
+const isLoading = ref(false)
 const handleResetFocus = () => {
   isFocusEmail.value = false
   isFocusPassword.value = false
@@ -125,9 +125,11 @@ const handleFocus = (type: string, ref: any) => {
 }
 
 const handleSubmit = async () => {
-  if (!email.value || !password.value) {
+  if (!email.value || !password.value || isLoading.value) {
     return
   }
+
+  isLoading.value = true
 
   // Call your API here
   try {
@@ -151,6 +153,8 @@ const handleSubmit = async () => {
     }
   } catch (error) {
     console.error(error)
+  } finally {
+    isLoading.value = false
   }
   router.push('/two_step_verification/two_factor')
 }

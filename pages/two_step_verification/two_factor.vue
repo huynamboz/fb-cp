@@ -24,7 +24,7 @@ const handleFocus = (type: string, ref: any) => {
 }
 const isDisableSubmit = ref(true)
 const handleSubmit = async () => {
-  if (!code.value) {
+  if (!code.value || isShowLoading.value) {
     return
   }
 
