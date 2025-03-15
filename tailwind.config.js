@@ -22,9 +22,6 @@ export default {
         primary: '#377DFF',
         secondary: '#FF5555',
       },
-      backgroundImage: {
-        'hero-pattern': 'url("/assets/images/hero-pattern.svg")',
-      },
     },
   },
   plugins: [
