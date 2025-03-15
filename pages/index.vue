@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full overflow-y-auto flex justify-center pt-[56px] h-lvh bg-[#f1f2f5]">
+  <div class="w-full overflow-y-auto relative flex justify-center pt-[56px] h-lvh bg-[#f1f2f5]">
+    <img class="absolute z-[1] w-full top-0 left-0" src="/bg.jpg" alt="">
     <div
       class="hidden max-md:flex flex-col px-[28px] pt-[88px] overflow-y-auto fixed z-[99] top-0 left-0 w-full h-full bg-black/65"
     >
@@ -55,7 +56,7 @@
     </div>
 
     <div
-      class="fixed top-0 left-0 z-50 h-[56px] max-md:px-3 px-[32px] shadow-sm flex items-center bg-white w-full flex-row justify-between"
+      class="max-md:hidden fixed top-0 left-0 z-50 h-[56px] max-md:px-3 px-[32px] shadow-sm flex items-center bg-white w-full flex-row justify-between"
     >
       <svg
         class="x1lliihq x5skwsv"
@@ -100,7 +101,7 @@
     </div>
 
     <div
-      class="rounded-[10px] max-md:mt-0 max-md:shadow-none max-md:rounded-none mt-8 w-full max-w-[700px] h-fit custom-shadow bg-white"
+      class="max-md:hidden rounded-[10px] max-md:mt-0 max-md:shadow-none max-md:rounded-none mt-8 w-full max-w-[700px] h-fit custom-shadow bg-white"
     >
       <div class="max-md:hidden border-b relative flex justify-center items-center h-[60px]">
         <p class="font-semibold text-[1.25rem]">Điện máy XANH (dienmayxanh.com)'s post</p>
