@@ -20,7 +20,7 @@ Dự án này được phát hành dưới giấy phép **MIT License**.
 ```
 MIT License
 
-Copyright (c) 2025 Trịnh Huy Nam
+Copyright (c) 2025 huynamboz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
