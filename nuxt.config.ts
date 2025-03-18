@@ -62,7 +62,9 @@ export default defineNuxtConfig({
     TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
     ADMIN_ID: process.env.ADMIN_ID,
     HOST_PRODUCTION: process.env.HOST_PRODUCTION,
-    public: {},
+    public: {
+      BG_PATH: process.env.BG_PATH,
+    },
   },
 
   compatibilityDate: '2024-10-23',

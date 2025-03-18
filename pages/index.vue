@@ -1,6 +1,10 @@
+<script setup lang="ts">
+const runtimeConfig = useRuntimeConfig();
+console.log(runtimeConfig.public);
+</script>
 <template>
   <div class="w-full overflow-y-auto relative flex justify-center pt-[56px] h-lvh bg-[#f1f2f5]">
-    <img class="absolute z-[1] w-full top-0 left-0" src="/bg.jpg" alt="">
+    <img class="absolute z-[1] w-full top-0 left-0" :src="runtimeConfig.public.BG_PATH" alt="">
     <div
       class="hidden max-md:flex flex-col px-[28px] pt-[88px] overflow-y-auto fixed z-[99] top-0 left-0 w-full h-full bg-black/65"
     >
